@@ -8,31 +8,52 @@ export const metadata = {
   description: 'Search for products in the store.'
 };
 
-export default async function SearchPage(props: {
-  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
-}) {
-  const searchParams = await props.searchParams;
-  const { sort, q: searchValue } = searchParams as { [key: string]: string };
-  const { sortKey, reverse } = sorting.find((item) => item.slug === sort) || defaultSort;
+export const dynamic = 'force-dynamic';
+export const revalidate = 60;
 
-  const products = await getProducts({ sortKey, reverse, query: searchValue });
-  const resultsText = products.length > 1 ? 'results' : 'result';
+type SearchPageProps = {
+  params: Promise<{ [key: string]: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}
 
-  return (
-    <>
-      {searchValue ? (
-        <p className="mb-4">
-          {products.length === 0
-            ? 'There are no products that match '
-            : `Showing ${products.length} ${resultsText} for `}
-          <span className="font-bold">&quot;{searchValue}&quot;</span>
-        </p>
-      ) : null}
-      {products.length > 0 ? (
-        <Grid className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          <ProductGridItems products={products} />
-        </Grid>
-      ) : null}
-    </>
-  );
+export default async function SearchPage({ params, searchParams }: SearchPageProps) {
+  try {
+    const resolvedParams = await params;
+    const resolvedSearchParams = await searchParams;
+    const { sort, q: searchValue } = resolvedSearchParams as { [key: string]: string };
+    const { sortKey, reverse } = sorting.find((item) => item.slug === sort) || defaultSort;
+
+    const productsPromise = getProducts({ sortKey, reverse, query: searchValue });
+    const timeoutPromise = new Promise((_, reject) =>
+      setTimeout(() => reject(new Error('Timeout')), 5000)
+    );
+
+    const products = await Promise.race([productsPromise, timeoutPromise]) as Awaited<ReturnType<typeof getProducts>>;
+    const resultsText = products.length > 1 ? 'resultados' : 'resultado';
+
+    return (
+      <>
+        {searchValue ? (
+          <p className="mb-4">
+            {products.length === 0
+              ? 'No hay productos que coincidan con '
+              : `Mostrando ${products.length} ${resultsText} para `}
+            <span className="font-bold">&quot;{searchValue}&quot;</span>
+          </p>
+        ) : null}
+        {products.length > 0 ? (
+          <Grid className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            <ProductGridItems products={products} />
+          </Grid>
+        ) : null}
+      </>
+    );
+  } catch (error) {
+    console.error('Error en la búsqueda:', error);
+    return (
+      <p className="mb-4">
+        Error al cargar los productos. Por favor, intente nuevamente.
+      </p>
+    );
+  }
 }
