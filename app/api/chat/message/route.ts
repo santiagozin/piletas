@@ -2,6 +2,10 @@ import { GoogleGenerativeAI, HarmBlockThreshold, HarmCategory } from '@google/ge
 import { getProducts } from 'lib/shopify';
 import { NextResponse } from 'next/server';
 
+if (!process.env.GEMINI_API_KEY) {
+  throw new Error('GEMINI_API_KEY no está configurada');
+}
+
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 const safetySettings = [

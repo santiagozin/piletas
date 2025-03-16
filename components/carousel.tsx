@@ -36,16 +36,15 @@ export async function Carousel() {
           </li>
         ))}
       </ul>
-    <div className='px-10 text-center mt-10'>
-      <div className="pt-10 flex gap-2 border-t border-gray-300">
-        <h2 className="text-title-section text-center mx-auto">No sabes que producto es el mejor para vos?</h2>
-      </div>
-      <p className="mt-2 text-xl text-gray-500 md:text-2xl max-w-2xl mx-auto">
-        Consulta en nuestro Chat para que te ayude a elegir el mejor producto para tu pileta
-      </p>
-      <Chatbot />
+      <div className='px-10 text-center mt-10'>
+        <div className="pt-10 flex gap-2 border-t border-gray-300">
+          <h2 className="text-title-section text-center mx-auto">No sabes que producto es el mejor para vos?</h2>
+        </div>
+        <p className="mt-2 text-xl text-gray-500 md:text-2xl max-w-2xl mx-auto">
+          Consulta en nuestro Chat para que te ayude a elegir el mejor producto para tu pileta
+        </p>
+        <Chatbot />
       </div>
     </div>
-    
   );
 }
