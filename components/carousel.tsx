@@ -1,5 +1,6 @@
 import { getCollectionProducts } from 'lib/shopify';
 import Link from 'next/link';
+import Chatbot from './chatbot';
 import { GridTileImage } from './grid/tile';
 
 export async function Carousel() {
@@ -12,7 +13,7 @@ export async function Carousel() {
   const carouselProducts = [...products, ...products, ...products];
 
   return (
-    <div className="w-full overflow-x-auto pb-6 pt-1">
+    <div className="w-full overflow-x-auto pb-6 pt-1 scrollbar-hide">
       <ul className="flex animate-carousel gap-4">
         {carouselProducts.map((product, i) => (
           <li
@@ -35,6 +36,16 @@ export async function Carousel() {
           </li>
         ))}
       </ul>
+    <div className='px-10 text-center mt-10'>
+      <div className="pt-10 flex gap-2 border-t border-gray-300">
+        <h2 className="text-title-section text-center mx-auto">No sabes que producto es el mejor para vos?</h2>
+      </div>
+      <p className="mt-2 text-xl text-gray-500 md:text-2xl max-w-2xl mx-auto">
+        Consulta en nuestro Chat para que te ayude a elegir el mejor producto para tu pileta
+      </p>
+      <Chatbot />
+      </div>
     </div>
+    
   );
 }

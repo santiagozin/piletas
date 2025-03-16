@@ -49,8 +49,8 @@ export default function CartModal() {
 
   return (
     <>
-      <button aria-label="Open cart" onClick={openCart}>
-        <OpenCart quantity={cart?.totalQuantity} />
+      <button aria-label="Open cart" onClick={openCart} className='ml-2'>
+        <OpenCart quantity={cart?.totalQuantity}  />
       </button>
       <Transition show={isOpen}>
         <Dialog onClose={closeCart} className="relative z-50">
@@ -74,9 +74,9 @@ export default function CartModal() {
             leaveFrom="translate-x-0"
             leaveTo="translate-x-full"
           >
-            <Dialog.Panel className="fixed bottom-0 right-0 top-0 flex h-full w-full flex-col border-l border-neutral-200 bg-white/80 p-6 text-black backdrop-blur-xl md:w-[390px] dark:border-neutral-700 dark:bg-black/80 dark:text-white">
+            <Dialog.Panel className="fixed bottom-0 right-0 top-0 flex h-full w-full flex-col border-l border-primary bg-white/80 p-6 text-primary backdrop-blur-xl md:w-[390px] dark:border-primary dark:bg-black/80 dark:text-white">
               <div className="flex items-center justify-between">
-                <p className="text-lg font-semibold">My Cart</p>
+                <p className="text-lg font-semibold text-black">Mi Carrito</p>
                 <button aria-label="Close cart" onClick={closeCart}>
                   <CloseCart />
                 </button>
@@ -84,8 +84,8 @@ export default function CartModal() {
 
               {!cart || cart.lines.length === 0 ? (
                 <div className="mt-20 flex w-full flex-col items-center justify-center overflow-hidden">
-                  <ShoppingCartIcon className="h-16" />
-                  <p className="mt-6 text-center text-2xl font-bold">Your cart is empty.</p>
+                  <ShoppingCartIcon className="h-16 text-primary" />
+                  <p className="mt-6 text-center text-2xl font-bold">Tu carrito está vacío.</p>
                 </div>
               ) : (
                 <div className="flex h-full flex-col justify-between overflow-hidden p-1">
@@ -111,14 +111,14 @@ export default function CartModal() {
                         return (
                           <li
                             key={i}
-                            className="flex w-full flex-col border-b border-neutral-300 dark:border-neutral-700"
+                            className="flex w-full flex-col border-b border-neutral-300 dark:border-primary"
                           >
                             <div className="relative flex w-full flex-row justify-between px-1 py-4">
                               <div className="absolute z-40 -ml-1 -mt-2">
                                 <DeleteItemButton item={item} optimisticUpdate={updateCartItem} />
                               </div>
                               <div className="flex flex-row">
-                                <div className="relative h-16 w-16 overflow-hidden rounded-md border border-neutral-300 bg-neutral-300 dark:border-neutral-700 dark:bg-neutral-900 dark:hover:bg-neutral-800">
+                                <div className="relative h-16 w-16 overflow-hidden rounded-md border border-neutral-300 bg-neutral-300 dark:border-primary dark:bg-neutral-900 dark:hover:bg-neutral-800">
                                   <Image
                                     className="h-full w-full object-cover"
                                     width={64}
@@ -176,7 +176,7 @@ export default function CartModal() {
                   </ul>
                   <div className="py-4 text-sm text-neutral-500 dark:text-neutral-400">
                     <div className="mb-3 flex items-center justify-between border-b border-neutral-200 pb-1 dark:border-neutral-700">
-                      <p>Taxes</p>
+                      <p>Impuestos</p>
                       <Price
                         className="text-right text-base text-black dark:text-white"
                         amount={cart.cost.totalTaxAmount.amount}
@@ -184,8 +184,8 @@ export default function CartModal() {
                       />
                     </div>
                     <div className="mb-3 flex items-center justify-between border-b border-neutral-200 pb-1 pt-1 dark:border-neutral-700">
-                      <p>Shipping</p>
-                      <p className="text-right">Calculated at checkout</p>
+                      <p>Envío</p>
+                      <p className="text-right">Calculado en el checkout</p>
                     </div>
                     <div className="mb-3 flex items-center justify-between border-b border-neutral-200 pb-1 pt-1 dark:border-neutral-700">
                       <p>Total</p>
@@ -218,7 +218,7 @@ function CheckoutButton() {
       type="submit"
       disabled={pending}
     >
-      {pending ? <LoadingDots className="bg-white" /> : 'Proceed to Checkout'}
+      {pending ? <LoadingDots className="bg-white" /> : 'Finalizar Compra'}
     </button>
   );
 }

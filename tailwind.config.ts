@@ -5,14 +5,26 @@ const config: Config = {
   content: ['./app/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+
+      colors: {
+        primary: {
+          DEFAULT: 'hsla(206,100%,73.3%,1)'
+        },
+        secondary: '#111111',
+        tertiary: '#222222',
+        quaternary: '#333333',
+        quinary: '#444444'
+      },
+
       fontFamily: {
-        sans: ['var(--font-geist-sans)']
+        sans: ['var(--font-inter-display)']
       },
       keyframes: {
         fadeIn: {
           from: { opacity: '0' },
           to: { opacity: '1' }
         },
+        
         marquee: {
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-100%)' }
