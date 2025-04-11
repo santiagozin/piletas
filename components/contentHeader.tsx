@@ -1,68 +1,86 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import banner1 from '../app/assets/banners/banner1.png';
-import banner2 from '../app/assets/banners/banner2.png';
-import banner3 from '../app/assets/banners/banner3.png';
-import banner4 from '../app/assets/banners/banner4.png';
+import banner3 from '../app/assets/productos/bombas.png';
+import banner2 from "../app/assets/productos/dolphins.png";
+import banner5 from '../app/assets/productos/limpieza.png';
+import banner1 from '../app/assets/productos/productosQuimicos.png';
+import banner4 from '../app/assets/productos/riegos.png';
+
+
 const ContentHeader = () => {
   return (
-    <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
-      <Link href="/search">
-        <div className="group relative h-[400px] md:h-[500px] w-full overflow-hidden bg-gradient-to-r from-[#83a4d4] to-[#b6fbff] rounded-lg hover:brightness-90 hover:cursor-pointer shadow-lg">
-          <p className="text-title-banner absolute left-10 top-10 text-gray-800">
-            Productos <span className="block">Quimicos</span>
+    <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2 px-4">
+      <Link href="/search/cuidado-del-agua">
+        <div className="group relative h-[350px] w-full overflow-hidden bg-gradient-to-t from-primary to-secondary rounded-lg hover:brightness-90 hover:cursor-pointer shadow-lg">
+          <p className="text-title-banner absolute left-10 top-10 text-pensok">
+            Tratamiento <span className="block">del Agua</span>
           </p>
           <Image
             src={banner1}
-            alt="contentHeader1"
-            width={310}
-            height={310}
-            className="absolute bottom-[-30px] right-[-90px] transition-all duration-300 group-hover:scale-110"
+            alt="categorias quimicos"
+            width={500}
+            height={500}
+            className="absolute bottom-[-20px] right-[0px] transition-all duration-300 group-hover:scale-110"
           />
         </div>
       </Link>
 
-      <Link href="/search">
-        <div className="group relative h-[400px] md:h-[500px] w-full overflow-hidden bg-gradient-to-r from-[#b6fbff] to-[#83a4d4] rounded-lg hover:brightness-90 hover:cursor-pointer shadow-lg">
-          <p className="text-title-banner absolute left-10 top-10 text-gray-800">
-            Accesorios <span className="block">para Piletas</span>
+      <Link href="/search/robots-limpieza">
+        <div className="group relative h-[350px] w-full overflow-hidden bg-gradient-to-t from-primary to-secondary rounded-lg hover:brightness-90 hover:cursor-pointer shadow-lg ">
+          <p className="text-title-banner absolute left-10 top-10 text-pensok">
+            Robots <span className="block">Limpieza</span>
           </p>
           <Image
             src={banner2}
-            alt="contentHeader2"
-            width={400}
-            height={400}
-            className="absolute bottom-[-100px] right-[-50px] max-w-none transition-all duration-300 group-hover:scale-110"
+            alt="categorias robots"
+            width={300}
+            height={300}
+            className="absolute bottom-[-50px] right-[0px] transition-all duration-300 group-hover:scale-110"
           />
         </div>
       </Link>
 
-      <Link href="/search">
-        <div className="group relative h-[400px] md:h-[500px] w-full overflow-hidden bg-gradient-to-r from-[#83a4d4] to-[#b6fbff] rounded-lg hover:brightness-90 hover:cursor-pointer shadow-lg">
-          <p className="text-title-banner absolute left-10 top-10 text-gray-800">
-            Repuestos <span className="block">para Piletas</span>
+      <Link href="/search/bombas-de-agua">
+        <div className="group relative h-[350px] w-full overflow-hidden bg-gradient-to-t from-primary to-secondary rounded-lg hover:brightness-90 hover:cursor-pointer shadow-lg ">
+          <p className="text-title-banner absolute left-10 top-10 text-pensok">
+            Bombas <span className="block">de Agua</span>
           </p>
           <Image
             src={banner3}
-            alt="contentHeader3"
-            width={200}
-            height={200}
-            className="absolute bottom-[-30px] right-[-10px] max-w-none transition-all duration-300 group-hover:scale-110"
+            alt="categorias bombas de agua"
+            width={300}
+            height={300}
+            className="absolute bottom-[-30px] right-[0px] transition-all duration-300 group-hover:scale-110"
           />
         </div>
       </Link>
 
-      <Link href="/search">
-        <div className="group relative h-[400px] md:h-[500px] w-full overflow-hidden bg-gradient-to-r from-[#b6fbff] to-[#83a4d4] rounded-lg hover:brightness-90 hover:cursor-pointer shadow-lg">
-          <p className="text-title-banner absolute left-10 top-10 text-gray-800">
-            Robots
+      <Link href="/search/riegos-y-exteriores">
+        <div className="group relative h-[350px] w-full overflow-hidden bg-gradient-to-t from-primary to-secondary rounded-lg hover:brightness-90 hover:cursor-pointer shadow-lg ">
+          <p className="text-title-banner absolute left-10 top-10 text-pensok">
+            Riegos <span className="block">y exteriores</span>
           </p>
           <Image
             src={banner4}
-            alt="contentHeader4"
+            alt="categorias riegos"
+            width={300}
+            height={300}
+            className="absolute bottom-[-10px] right-[0px] transition-all duration-300 group-hover:scale-110"
+          />
+        </div>
+      </Link>
+
+      <Link href="/search/productos-de-limpieza">
+        <div className="group relative h-[350px] w-full overflow-hidden bg-gradient-to-t from-primary to-secondary rounded-lg hover:brightness-90 hover:cursor-pointer shadow-lg">
+          <p className="text-title-banner absolute left-10 top-10 text-pensok">
+            Productos <span className="block">de limpieza</span>
+          </p>
+          <Image
+            src={banner5}
+            alt="categorias riegos"
             width={350}
             height={350}
-            className="absolute bottom-[-40px] right-[-30px] max-w-none transition-all duration-300 group-hover:scale-110"
+            className="absolute bottom-[-20px] right-[0px] transition-all duration-300 group-hover:scale-110"
           />
         </div>
       </Link>

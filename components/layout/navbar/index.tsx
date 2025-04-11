@@ -1,10 +1,13 @@
 import CartModal from 'components/cart/modal';
 import { getMenu } from 'lib/shopify';
 import { Menu } from 'lib/shopify/types';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Suspense } from 'react';
+import logo from '../../../app/assets/logo.png';
 import MobileMenu from './mobile-menu';
 import Search, { SearchSkeleton } from './search';
+
 
 const { SITE_NAME } = process.env;
 
@@ -12,7 +15,7 @@ export async function Navbar() {
   const menu = await getMenu('next-js-frontend-header-menu');
 
   return (
-    <nav className="relative flex items-center justify-between p-4 lg:px-6">
+    <nav className="relative flex items-center justify-between p-1 lg:px-6 bg-[#294a72]">
       <div className="block flex-none md:hidden">
         <Suspense fallback={null}>
           <MobileMenu menu={menu} />
@@ -25,8 +28,9 @@ export async function Navbar() {
             prefetch={true}
             className="mr-2 flex w-full items-center justify-center lg:mr-6"
           >
-            <div className="ml-2 flex-none px-6 py-2 text-xl font-bold uppercase md:hidden lg:block text-white text-center  flex justify-around bg-primary">
-              {SITE_NAME}
+            <div className="ml-2 flex-none px-6 py-2 text-xl font-bold uppercase md:hidden lg:block text-white text-center  flex justify-around  rounded-full">
+          
+              <Image src={logo} alt="Logo" width={130} height={130} />
             </div>
           </Link>
           {menu.length ? (
@@ -36,7 +40,7 @@ export async function Navbar() {
                   <Link
                     href={item.path}
                     prefetch={true}
-                    className="text-neutral-500 underline-offset-4 hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-neutral-300 text-xl"
+                    className="text-white font-poppins underline-offset-4 hover:text-primary  dark:text-white  dark:hover:text-neutral-300 text-lg w-full"
                   >
                     {item.title}
                   </Link>

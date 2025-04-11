@@ -37,3 +37,12 @@ export const validateEnvironmentVariables = () => {
     );
   }
 };
+
+// Utility function to concatenate class names
+export const classNames = (...classes: string[]) => classes.filter(Boolean).join(' ');
+
+// Utility function to concatenate class names (alias)
+export const cn = classNames; // You can also define it as a separate function if you want
+
+// Usage example (this should be in a comment or separate documentation)
+// const exampleClassName = classNames("your-class", condition && "another-class");

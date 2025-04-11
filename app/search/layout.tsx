@@ -1,21 +1,24 @@
+import FilterItemDropdown from '@/components/layout/search/filter/dropdown';
+import { sorting } from '@/lib/constants';
 import Footer from 'components/layout/footer';
 import Collections from 'components/layout/search/collections';
-import FilterList from 'components/layout/search/filter';
-import { sorting } from 'lib/constants';
 import ChildrenWrapper from './children-wrapper';
 
 export default function SearchLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <div className="mx-auto flex max-w-screen-2xl flex-col gap-8 px-4 pb-4 text-black md:flex-row dark:text-white pt-10">
-        <div className="order-first w-full flex-none md:max-w-[125px]">
-          <Collections />
+      <div className="mx-auto flex max-w-screen-2xl gap-8 px-4 pb-4 pt-10 text-black flex-col dark:text-white">
+        <div className='flex flex-row w-full justify-center items-center'>
+          <span className='text-lg font-bold mr-4'>Ordenar por</span>
+          <FilterItemDropdown list={sorting} />
         </div>
-        <div className="order-last min-h-screen w-full md:order-none">
-          <ChildrenWrapper>{children}</ChildrenWrapper>
-        </div>
-        <div className="order-none flex-none md:order-last md:w-[125px]">
-          <FilterList list={sorting} title="Ordenar por" />
+        <div className='flex flex-row'>
+          <div className="order-first w-full flex-none rounded-lg bg-slate-100 px-4 md:max-w-[250px] mr-4 pt-10">
+            <Collections />
+          </div>
+          <div className="order-last min-h-screen w-full md:order-none">
+            <ChildrenWrapper>{children}</ChildrenWrapper>
+          </div>
         </div>
       </div>
       <Footer />

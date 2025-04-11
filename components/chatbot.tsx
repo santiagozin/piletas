@@ -1,9 +1,8 @@
-'use client'
+'use client';
 
-
-import { Button } from "@headlessui/react";
-import { useState } from "react";
-
+import { Button } from '@headlessui/react';
+import { useState } from 'react';
+import { AuroraText } from './magicui/aurora-text';
 
 // Definir interfaces para tipado
 interface Message {
@@ -19,57 +18,56 @@ interface RecommendedProduct {
   imageUrl: string;
 }
 
-
 export default function Chatbot() {
   const [messages, setMessages] = useState<Message[]>([
     {
-      text: "¡Hola! 👋 Soy tu asistente experto en piscinas. Puedo ayudarte con problemas de mantenimiento, recomendarte productos y responder tus dudas sobre el cuidado de tu pileta. ¿En qué puedo ayudarte?",
-      isBot: true,
-    },
+      text: '¡Hola! 👋 Soy tu asistente experto en piscinas. Puedo ayudarte con problemas de mantenimiento, recomendarte productos y responder tus dudas sobre el cuidado de tu pileta. ¿En qué puedo ayudarte?',
+      isBot: true
+    }
   ]);
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [recommendedProduct, setRecommendedProduct] = useState<RecommendedProduct | null>(null);
 
   const productImages: { [key: string]: string } = {
     'Cloro Granulado': '/cloro-granulado.png',
-    'Alguicida': '/alguicida.png',
-    'Clarificador': '/clarificador.png',
+    Alguicida: '/alguicida.png',
+    Clarificador: '/clarificador.png',
     'Regulador pH': '/regulador-ph.png',
     'Kit Medidor': '/kit-medidor.png',
-    'Barrefondo': '/barrefondo.png',
-    'Red de Limpieza': '/red-limpieza.png',
+    Barrefondo: '/barrefondo.png',
+    'Red de Limpieza': '/red-limpieza.png'
     // Agregar más productos según sea necesario
   };
 
   const obtenerRespuestaIA = async (mensajeUsuario: string) => {
     try {
-      const response = await fetch("/api/chat/message", {
-        method: "POST",
+      const response = await fetch('/api/chat/message', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
           sessionId: crypto.randomUUID(), // Genera un ID único para la sesión
           message: mensajeUsuario,
-          userEmail: "usuario@ejemplo.com", // Aquí deberías obtener el email del usuario autenticado
-        }),
+          userEmail: 'usuario@ejemplo.com' // Aquí deberías obtener el email del usuario autenticado
+        })
       });
 
       if (!response.ok) {
-        throw new Error("Error en la respuesta de la IA");
+        throw new Error('Error en la respuesta de la IA');
       }
 
       const data = await response.json();
       return {
         message: data.message,
-        recommendedProduct: data.recommendedProduct,
+        recommendedProduct: data.recommendedProduct
       };
     } catch (error) {
-      console.error("Error al obtener respuesta de la IA:", error);
+      console.error('Error al obtener respuesta de la IA:', error);
       return {
-        message: "Lo siento, hubo un error al procesar tu mensaje. ¿Podrías intentarlo de nuevo?",
-        recommendedProduct: null,
+        message: 'Lo siento, hubo un error al procesar tu mensaje. ¿Podrías intentarlo de nuevo?',
+        recommendedProduct: null
       };
     }
   };
@@ -79,7 +77,7 @@ export default function Chatbot() {
 
     setIsLoading(true);
     const userMessage = input;
-    setInput("");
+    setInput('');
 
     setMessages((prev) => [...prev, { text: userMessage, isBot: false }]);
 
@@ -90,79 +88,104 @@ export default function Chatbot() {
     setIsLoading(false);
   };
 
+  const handlePromptClick = (prompt: string) => {
+    setInput(prompt); // Establece el texto del prompt en el input
+  };
+
   return (
-    <div className="max-w-2xl mx-auto p-4 z-[99999999] border border-gray-100 rounded-lg shadow-lg mt-10">
+    <div className="relative mt-12 bg-gradient-to-t from-primary to-secondary pt-10" id="ayuda">
+      <h2 className="text-center text-4xl font-bold tracking-tighter md:text-4xl lg:text-5xl">
+        Te ayudamos <AuroraText>a elegir</AuroraText>
+      </h2>
+      <p className="text-center text-lg text-gray-500 mt-2">Consulta con a IA para encontrar el producto ideal para vos</p>
 
-      <div className="mb-4">
-        <div className="p-4">
-          <div className="h-96 overflow-y-auto mb-4">
-            {messages.map((message, index) => (
-              <div
-                key={index}
-                className={`mb-2 ${
-                  message.isBot ? "text-left" : "text-right"
-                }`}
-              >
-                <span
-                  className={`inline-block p-2 rounded-lg ${
-                    message.isBot
-                      ? "bg-blue-100 text-blue-900"
-                      : "bg-green-100 text-green-900"
-                  }`}
-                >
-                  {message.text}
-                </span>
-              </div>
-            ))}
-            {isLoading && (
-              <div className="">
-                <span className="inline-block p-2 bg-gray-100 rounded-lg">
-                  Pensando...
-                </span>
-              </div>
-            )}
-          </div>
-
-             <div className="flex gap-2">
-            <input
-              type="text"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyPress={(e) => e.key === "Enter" && handleSend()}
-              placeholder="Describe el estado de tu piscina..."
-              className="flex-1 p-2 border rounded-lg"
-              disabled={isLoading}
-            />
-            <button className="bg-primary text-white px-4 py-2 rounded-lg" onClick={handleSend} disabled={isLoading}>
-             Preguntar
-            </button>
-          </div>
+      <div className="flex flex-col md:flex-row items-center justify-center gap-2 border-t border-white mt-4 pt-4 ">
+        <div
+          className="flex flex-col gap-2 rounded-full bg-zinc-200 hover:bg-opacity-50 border border-white p-1 px-4 text-center text-sm font-medium text-blue-900 cursor-pointer"
+          onClick={() => handlePromptClick("Tengo la pileta verde, que puedo hacer?")}
+        >
+          <p>Tengo la pileta verde, que puedo hacer?</p>
+        </div>
+        <div
+          className="flex max-w-xs flex-col gap-2 rounded-full bg-zinc-200 hover:bg-opacity-50 border border-white p-1 px-4 text-center text-sm font-medium text-blue-900 cursor-pointer"
+          onClick={() => handlePromptClick("Cuantos KG de cloro necesito para una pileta de 30m3?")}
+        >
+          <p>Cuantos KG de cloro necesito para una pileta de 30m3?</p>
+        </div>
+        <div
+          className="flex max-w-xs flex-col gap-2 rounded-full bg-zinc-200 hover:bg-opacity-50 border border-white p-1 px-4 text-center text-sm font-medium text-blue-900 cursor-pointer"
+          onClick={() => handlePromptClick("Tengo una pileta pintada, que tipo de producto puedo usar?")}
+        >
+          <p>Tengo una pileta pintada, que tipo de producto puedo usar?</p>
         </div>
       </div>
-      {recommendedProduct && (
-        <div className="mb-4 bg-white rounded-lg p-4 shadow-xl z-[99999999] absolute right-4 max-w-[300px]">
-          <h3 className="font-medium mb-2">Producto Recomendado:</h3>
-          <div className="p-2 rounded-lg hover:bg-gray-50">
-            <img 
-              src={recommendedProduct.imageUrl}
-              alt={recommendedProduct.name} 
-              width={50}
-              height={50}
-              className="w-full h-auto mb-2 rounded-lg max-w-[100px]"
-            />
-            <h4 className="font-bold text-primary">{recommendedProduct.name}</h4>
-            <p className="text-sm text-gray-600">{recommendedProduct.description}</p>
-            <p className="text-green-600 font-bold mt-2">${recommendedProduct.price}</p>
-            <Button
-              className="mt-2 w-full bg-primary hover:bg-primary/90 text-white"
-              onClick={() => alert(`Producto agregado: ${recommendedProduct.name}`)}
-            >
-              Agregar al carrito
-            </Button>
+
+      <div className="z-[99999999] mx-auto mt-10 max-w-2xl rounded-lg p-4">
+        <div className="mb-4">
+          <div className="p-4">
+            <div className="mb-4 h-96 overflow-y-auto">
+              {messages.map((message, index) => (
+                <div key={index} className={`mb-2 ${message.isBot ? 'text-left' : 'text-right'}`}>
+                  <span
+                    className={`inline-block rounded-lg p-2 ${
+                      message.isBot ? 'bg-gray-100 text-blue-900' : 'bg-green-100 text-green-900'
+                    }`}
+                  >
+                    {message.text}
+                  </span>
+                </div>
+              ))}
+              {isLoading && (
+                <div className="">
+                  <span className="inline-block rounded-full bg-gray-100 p-2">Pensando...</span>
+                </div>
+              )}
+            </div>
+
+            <div className="flex gap-2">
+              <input
+                type="text"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && handleSend()}
+                placeholder="Escribe tu pregunta.."
+                className="flex-1 rounded-full border p-4 w-full"
+                disabled={isLoading}
+              />
+              <button
+                className="rounded-lg bg-pensok px-4 py-2 text-white min-w-28"
+                onClick={handleSend}
+                disabled={isLoading}
+              >
+                Preguntar
+              </button>
+            </div>
           </div>
         </div>
-      )}
+        {recommendedProduct && (
+          <div className="absolute right-4 z-[99999999] mb-4 max-w-[300px] rounded-lg bg-white p-4 shadow-xl">
+            <h3 className="mb-2 font-medium">Producto Recomendado:</h3>
+            <div className="rounded-lg p-2 hover:bg-gray-50">
+              <img
+                src={recommendedProduct.imageUrl}
+                alt={recommendedProduct.name}
+                width={50}
+                height={50}
+                className="mb-2 h-auto w-full max-w-[100px] rounded-lg"
+              />
+              <h4 className="font-bold text-primary">{recommendedProduct.name}</h4>
+              <p className="text-sm text-gray-600">{recommendedProduct.description}</p>
+              <p className="mt-2 font-bold text-green-600">${recommendedProduct.price}</p>
+              <Button
+                className="mt-2 w-full bg-primary text-white hover:bg-primary/90"
+                onClick={() => alert(`Producto agregado: ${recommendedProduct.name}`)}
+              >
+                Agregar al carrito
+              </Button>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
-

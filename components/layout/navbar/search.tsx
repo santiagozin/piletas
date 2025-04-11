@@ -16,10 +16,10 @@ export default function Search() {
         placeholder="Buscar productos..."
         autoComplete="off"
         defaultValue={searchParams?.get('q') || ''}
-        className="text-md w-full rounded-lg border border-primary bg-white px-4 py-2 text-primary placeholder:text-primary md:text-md dark:border-primary dark:bg-transparent dark:text-white dark:placeholder:text-neutral-400"
+        className="text-xl w-full rounded-lg border bg-white px-4 py-3 text-[#294a72] placeholder:text-pensok md:text-lg dark:border-primary dark:bg-transparent dark:text-white dark:placeholder:text-neutral-400"
       />
       <div className="absolute right-0 top-0 mr-3 flex h-full items-center">
-        <MagnifyingGlassIcon className="h-6 text-primary" />
+        <MagnifyingGlassIcon className="h-6 text-pensok" />
       </div>
     </Form>
   );
@@ -30,7 +30,7 @@ export function SearchSkeleton() {
     <form className="w-max-[550px] relative w-full lg:w-80 xl:w-full">
       <input
         placeholder="Search for products..."
-        className="w-full rounded-lg border bg-white px-4 py-2 text-md text-primary placeholder:text-neutral-500 dark:border-primary dark:bg-transparent dark:text-white dark:placeholder:text-neutral-400"
+        className="w-full rounded-lg border bg-white px-4 py-2 text-md text-pensok placeholder:text-neutral-500 dark:border-pensok dark:bg-transparent dark:text-white dark:placeholder:text-neutral-400"
       />
       <div className="absolute right-0 top-0 mr-3 flex h-full items-center">
         <MagnifyingGlassIcon className="h-4" />

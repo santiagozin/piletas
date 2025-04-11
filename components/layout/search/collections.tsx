@@ -1,12 +1,37 @@
 import clsx from 'clsx';
 import { Suspense } from 'react';
 
-import { getCollections } from 'lib/shopify';
+import { priceRanges } from 'lib/constants';
+import { getCollections, getProducts } from 'lib/shopify';
 import FilterList from './filter';
 
 async function CollectionList() {
   const collections = await getCollections();
-  return <FilterList list={collections} title="Categorías" />;
+  const products = await getProducts({});
+
+  const availableBrands = Array.from(new Set(products.map(product => product.vendor)))
+    .filter(Boolean)
+    .sort()
+    .map(vendor => ({
+      title: vendor,
+      slug: vendor.toLowerCase(),
+      type: 'BRAND' as const,
+      brandId: vendor
+    }));
+
+
+  const brandFilters = [
+    { title: 'Todas las marcas', slug: null, type: 'BRAND' as const, brandId: '' },
+    ...availableBrands
+  ];
+
+  const allFilters = [
+    ...collections,
+    ...brandFilters,
+    ...priceRanges
+  ];
+  
+  return <FilterList list={allFilters} title="Categorías" />;
 }
 
 const skeleton = 'mb-3 h-4 w-5/6 animate-pulse rounded';

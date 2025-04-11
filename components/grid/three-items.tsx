@@ -1,4 +1,3 @@
-import { RiStore2Fill } from '@remixicon/react';
 import { GridTileImage } from 'components/grid/tile';
 import { getCollectionProducts } from 'lib/shopify';
 import type { Product } from 'lib/shopify/types';
@@ -26,7 +25,7 @@ function ThreeItemGridItem({
           src={item.featuredImage.url}
           fill
           sizes={
-            size === 'full' ? '(min-width: 768px) 66vw, 100vw' : '(min-width: 768px) 33vw, 100vw'
+            size === 'full' ? '(min-width: 768px) 66vw, 100vw' : '(min-width: 768px) 25vw, 100vw'
           }
           priority={priority}
           alt={item.title}
@@ -42,34 +41,32 @@ function ThreeItemGridItem({
   );
 }
 
-export async function ThreeItemGrid() {
-
+export async function FourItemGrid() {
   const homepageItems = await getCollectionProducts({
     collection: 'hidden-homepage-featured-items'
   });
 
-  if (!homepageItems[0] || !homepageItems[1] || !homepageItems[2]) return null;
+  if (!homepageItems[0] || !homepageItems[1] || !homepageItems[2] || !homepageItems[3]) return null;
 
-  const [firstProduct, secondProduct, thirdProduct] = homepageItems;
+  const [firstProduct, secondProduct, thirdProduct, fourthProduct] = homepageItems;
 
   return (
-    <section className="mt-20 border-t border-primary px-10">
-         <div className="mt-10 flex gap-2 items-center">
-        <RiStore2Fill className=" h-9 w-9 text-primary" />
-        <h2 className="text-title-section">Productos Destacados</h2>
-      </div>
-      <p className="mt-2 text-xl md:text-2xl text-gray-500">Conoce toda nuestra variedad de productos</p>
-
-      <button className='bg-primary text-white px-4 py-2 rounded-md mt-10 mx-auto flex items-center gap-2 justify-center uppercase font-bold min-w-96 min-h-12 hover:bg-primary/80 transition-all duration-300 text-xl'>
-      <RiStore2Fill className=" h-4 w-4 text-white" /> Ir a la tienda
+    <section className="mt-28 px-4 font-poppins border-t border-gray-300 relative">
+      <button className="md:absolute top-[-70px] md:left-[30%] hover:bg-pensok mx-auto mt-10 flex min-h-16 w-full md:min-w-48 max-w-2xl items-center justify-center gap-2 rounded-md bg-primary px-4 py-2 text-xl font-bold uppercase text-white transition-all duration-300">
+        <Link href="/search">
+          VER TODAS LAS CATEGORIAS
+        </Link>
       </button>
+      <div className="mt-28 flex items-center justify-start gap-2">
+        <div className='border-b-2 border-black w-20'></div>
+        <h2 className="text-title-section text-center">DESCUENTOS EXCLUSIVOS</h2>
+      </div>
 
-      <div className='mx-auto grid max-w-screen-2xl gap-4 px-4 pb-4 md:grid-cols-6 md:grid-rows-1 lg:max-h-[calc(100vh-200px)] mt-10'>
-      <ThreeItemGridItem size="half" item={firstProduct} priority={true} />
-      <ThreeItemGridItem size="half" item={secondProduct} priority={true} />
-      <ThreeItemGridItem size="half" item={thirdProduct} />
-
-      
+      <div className="mx-auto mt-10 grid max-w-screen-2xl gap-4 px-4 pb-4 md:grid-cols-8 md:grid-rows-1 lg:max-h-[calc(100vh-200px)]">
+        <ThreeItemGridItem size="half" item={firstProduct} priority={true} />
+        <ThreeItemGridItem size="half" item={secondProduct} priority={true} />
+        <ThreeItemGridItem size="half" item={thirdProduct} />
+        <ThreeItemGridItem size="half" item={fourthProduct} />
       </div>
     </section>
   );

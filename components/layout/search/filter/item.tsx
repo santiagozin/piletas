@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import type { SortFilterItem } from 'lib/constants';
+import type { BrandFilterItem, PriceFilterItem, SortFilterItem } from 'lib/constants';
 import { createUrl } from 'lib/utils';
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
@@ -17,13 +17,13 @@ function PathFilterItem({ item }: { item: PathFilterItem }) {
   newParams.delete('q');
 
   return (
-    <li className="mt-2 flex text-black dark:text-white" key={item.title}>
+    <li className="mt-2 flex font-poppins text-gray-700 dark:text-white" key={item.title}>
       <DynamicTag
         href={createUrl(item.path, newParams)}
         className={clsx(
-          'w-full text-sm underline-offset-4 hover:underline dark:hover:text-neutral-100',
+          'text-md dark:hover:text-neutral-10 w-full underline-offset-4 hover:underline',
           {
-            'underline underline-offset-4': active
+            'rounded-lg bg-primary px-4 py-2 font-poppins text-white underline-offset-4': active
           }
         )}
       >
@@ -52,6 +52,35 @@ function SortFilterItem({ item }: { item: SortFilterItem }) {
       <DynamicTag
         prefetch={!active ? false : undefined}
         href={href}
+        className={clsx('text-mdw-full hover:underline hover:underline-offset-4', {
+          'underline underline-offset-4': active
+        })}
+      >
+        {item.title}
+      </DynamicTag>
+    </li>
+  );
+}
+
+function BrandFilterItem({ item }: { item: BrandFilterItem }) {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const active = searchParams.get('brand') === item.slug;
+  const q = searchParams.get('q');
+  const href = createUrl(
+    pathname,
+    new URLSearchParams({
+      ...(q && { q }),
+      ...(item.slug && item.slug.length && { brand: item.slug })
+    })
+  );
+  const DynamicTag = active ? 'p' : Link;
+
+  return (
+    <li className="mt-2 flex text-md text-black dark:text-white" key={item.title}>
+      <DynamicTag
+        prefetch={!active ? false : undefined}
+        href={href}
         className={clsx('w-full hover:underline hover:underline-offset-4', {
           'underline underline-offset-4': active
         })}
@@ -62,6 +91,61 @@ function SortFilterItem({ item }: { item: SortFilterItem }) {
   );
 }
 
+function PriceFilterItem({ item }: { item: PriceFilterItem }) {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const active = searchParams.get('price') === item.slug;
+  const q = searchParams.get('q');
+  const href = createUrl(
+    pathname,
+    new URLSearchParams({
+      ...(q && { q }),
+      ...(item.slug && item.slug.length && { price: item.slug })
+    })
+  );
+  const DynamicTag = active ? 'p' : Link;
+
+  return (
+
+    <li className="mt-2 flex text-md text-black dark:text-white " key={item.title}>
+      <DynamicTag
+        prefetch={!active ? false : undefined}
+        href={href}
+        className={clsx('w-full hover:underline hover:underline-offset-4', {
+          'underline underline-offset-4': active
+        })}
+      >
+        {item.title}
+      </DynamicTag>
+    </li>
+
+  );
+}
+
 export function FilterItem({ item }: { item: ListItem }) {
-  return 'path' in item ? <PathFilterItem item={item} /> : <SortFilterItem item={item} />;
+  if ('path' in item)
+    return (
+      <div className="">
+        <PathFilterItem item={item} />
+      </div>
+    );
+  if ('sortKey' in item)
+    return (
+      <div className="">
+        <SortFilterItem item={item} />
+      </div>
+    );
+  if ('brandId' in item)
+    return (
+      <div className="">
+        <BrandFilterItem item={item} />
+      </div>
+    );
+  if ('priceRange' in item)
+    return (
+      <div className="">
+        <PriceFilterItem item={item} />
+      </div>
+    );
+  return null;
 }

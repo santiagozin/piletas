@@ -1,9 +1,10 @@
 import { CartProvider } from 'components/cart/cart-context';
 import { FloatingButtons } from 'components/layout/FloatingButtons';
 import { Navbar } from 'components/layout/navbar';
+import { AnimatePresence } from 'framer-motion';
 import { getCart } from 'lib/shopify';
 import { ensureStartsWith } from 'lib/utils';
-import { Inter } from 'next/font/google';
+import { Inter, Poppins } from 'next/font/google';
 import { cookies } from 'next/headers';
 import { ReactNode } from 'react';
 import { Toaster } from 'sonner';
@@ -20,6 +21,13 @@ const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-inter-display'
+});
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-poppins',
+  display: 'swap'
 });
 
 export const metadata = {
@@ -48,14 +56,15 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   const cart = getCart(cartId);
 
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
       <body className="bg-white text-black selection:bg-teal-300 dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white">
         <CartProvider cartPromise={cart}>
           <Navbar />
           <main>
-            {children}
+            <AnimatePresence mode="wait">
+              {children}
+            </AnimatePresence>
             <Toaster closeButton />
-  
           </main>
           <FloatingButtons />
         </CartProvider>

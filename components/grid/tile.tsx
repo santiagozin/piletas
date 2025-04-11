@@ -1,4 +1,7 @@
+'use client';
+
 import clsx from 'clsx';
+import { Product } from 'lib/shopify/types';
 import Image from 'next/image';
 import Label from '../label';
 
@@ -6,6 +9,7 @@ export function GridTileImage({
   isInteractive = true,
   active,
   label,
+  product,
   ...props
 }: {
   isInteractive?: boolean;
@@ -16,7 +20,10 @@ export function GridTileImage({
     currencyCode: string;
     position?: 'bottom' | 'center';
   };
+  product?: Product;
 } & React.ComponentProps<typeof Image>) {
+
+  
   return (
     <div
       className={clsx(

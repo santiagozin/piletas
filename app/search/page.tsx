@@ -1,5 +1,5 @@
 import Grid from 'components/grid';
-import ProductGridItems from 'components/layout/product-grid-items';
+import { ProductGridItems } from 'components/layout/product-grid-items';
 import { defaultSort, sorting } from 'lib/constants';
 import { getProducts } from 'lib/shopify';
 
@@ -42,14 +42,14 @@ export default async function SearchPage({ params, searchParams }: SearchPagePro
           </p>
         ) : null}
         {products.length > 0 ? (
-          <Grid className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+          <Grid className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             <ProductGridItems products={products} />
           </Grid>
         ) : null}
       </>
     );
   } catch (error) {
-    console.error('Error en la búsqueda:', error);
+
     return (
       <p className="mb-4">
         Error al cargar los productos. Por favor, intente nuevamente.
