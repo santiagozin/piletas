@@ -30,7 +30,7 @@ export function GridTileImage({
         'group flex h-full w-full items-center justify-center overflow-hidden rounded-lg border bg-gradient-to-b from-[#e6f0fd] to-[#adcbed] hover:border-primary dark:bg-black',
         {
           relative: label,
-          'border-2 border-primary': active,
+          '': active,
           'border-neutral-200 dark:border-neutral-800': !active
         }
       )}

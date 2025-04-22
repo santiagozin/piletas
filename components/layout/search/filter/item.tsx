@@ -52,9 +52,12 @@ function SortFilterItem({ item }: { item: SortFilterItem }) {
       <DynamicTag
         prefetch={!active ? false : undefined}
         href={href}
-        className={clsx('text-mdw-full hover:underline hover:underline-offset-4', {
-          'underline underline-offset-4': active
-        })}
+        className={clsx(
+          'text-md dark:hover:text-neutral-10 w-full underline-offset-4 hover:underline',
+          {
+            'rounded-lg bg-primary px-4 py-2 font-poppins text-white underline-offset-4': active
+          }
+        )}
       >
         {item.title}
       </DynamicTag>
@@ -81,9 +84,12 @@ function BrandFilterItem({ item }: { item: BrandFilterItem }) {
       <DynamicTag
         prefetch={!active ? false : undefined}
         href={href}
-        className={clsx('w-full hover:underline hover:underline-offset-4', {
-          'underline underline-offset-4': active
-        })}
+        className={clsx(
+          'text-md dark:hover:text-neutral-10 w-full underline-offset-4 hover:underline',
+          {
+            'rounded-lg bg-primary px-4 py-2 font-poppins text-white underline-offset-4': active
+          }
+        )}
       >
         {item.title}
       </DynamicTag>
@@ -111,9 +117,12 @@ function PriceFilterItem({ item }: { item: PriceFilterItem }) {
       <DynamicTag
         prefetch={!active ? false : undefined}
         href={href}
-        className={clsx('w-full hover:underline hover:underline-offset-4', {
-          'underline underline-offset-4': active
-        })}
+        className={clsx(
+          'text-md dark:hover:text-neutral-10 w-full underline-offset-4 hover:underline',
+          {
+            'rounded-lg bg-primary px-4 py-2 font-poppins text-white underline-offset-4': active
+          }
+        )}
       >
         {item.title}
       </DynamicTag>

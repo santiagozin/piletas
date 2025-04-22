@@ -1,6 +1,7 @@
 import { CartProvider } from 'components/cart/cart-context';
 import { FloatingButtons } from 'components/layout/FloatingButtons';
 import { Navbar } from 'components/layout/navbar';
+import PreHeader from 'components/preHeader';
 import { AnimatePresence } from 'framer-motion';
 import { getCart } from 'lib/shopify';
 import { ensureStartsWith } from 'lib/utils';
@@ -9,7 +10,6 @@ import { cookies } from 'next/headers';
 import { ReactNode } from 'react';
 import { Toaster } from 'sonner';
 import './globals.css';
-
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
 const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
   ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
@@ -59,6 +59,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
     <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
       <body className="bg-white text-black selection:bg-teal-300 dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white">
         <CartProvider cartPromise={cart}>
+        <PreHeader />
           <Navbar />
           <main>
             <AnimatePresence mode="wait">

@@ -6,8 +6,9 @@ import ContentHeader from 'components/contentHeader';
 import ContentProcess from 'components/contentProcess';
 import { FourItemGrid } from 'components/grid/three-items';
 import Footer from 'components/layout/footer';
+
 export const metadata = {
-  description: 'Tienda de productos para piletas',
+  description: 'Tienda de productos para piletas y el cuidado del hogar',
   openGraph: {
     type: 'website'
   }
@@ -16,6 +17,7 @@ export const metadata = {
 export default function HomePage() {
   return (
     <>
+
       <BannerCarousel />
       <ContentHeader />
       <FourItemGrid />

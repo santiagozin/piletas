@@ -9,10 +9,10 @@ import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { SwiperSlide } from 'swiper/react';
 import banner1Mobile from '../app/assets/banners/banner1-mobile.png';
 import banner1 from '../app/assets/banners/banner1.png';
-import banner2Mobile from '../app/assets/banners/banner2-mobile.png';
-import banner2 from '../app/assets/banners/banner2.png';
 import banner3Mobile from '../app/assets/banners/banner3-mobile.png';
 import banner3 from '../app/assets/banners/banner3.png';
+import banner4Mobile from '../app/assets/banners/banner4-mobile.png';
+import banner4 from '../app/assets/banners/banner4.png';
 import BannerContent from './bannerContent';
 const Swiper = dynamic(() => import('swiper/react').then((mod) => mod.Swiper), {
   ssr: true
@@ -25,7 +25,7 @@ const BannerCarousel = () => {
         modules={[Navigation, Pagination, Autoplay]}
         navigation
         pagination={{ clickable: true }}
-        autoplay={{ delay: 5000, disableOnInteraction: false }}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
         spaceBetween={0}
         slidesPerView={1}
         className="h-[600px] w-full"
@@ -65,15 +65,15 @@ const BannerCarousel = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div className="relative h-[600px] w-full ">
-            <div className="hidden md:flex absolute right-[30%] top-28 z-50  -translate-x-1/2 items-center rounded-full bg-white px-4 py-2 font-poppins text-3xl font-medium text-gray-600 shadow-2xl">
+            <div className="hidden md:flex absolute right-[37%] top-28 z-50  -translate-x-1/2 items-center rounded-full bg-white px-4 py-2 font-poppins text-3xl font-medium text-gray-600 shadow-2xl">
               NOVEDADES
             </div>
             <BannerContent color="green">
               <h2 className="w-full pt-10 md:pt-20 text-center font-poppins text-4xl md:text-6xl font-bold leading-tight text-white">
-                JARDIN Y EXTERIORES
+                Nueva linea <span className='text-amber-100'>HOME</span>
               </h2>
-              <p className="w-1/2 absolute bottom-[36%] md:bottom-[35%] left-1/2 z-50 -translate-x-1/2 text-center font-poppins text-2xl md:text-4xl font-medium md:tracking-wide text-yellow-200">
-                Riegos, Mangueras y mucho mas !
+              <p className="w-3/4 absolute bottom-[36%] md:bottom-[35%] left-1/2 z-50 -translate-x-1/2 text-center font-poppins text-2xl md:text-4xl font-medium md:tracking-wide text-amber-200">
+                Productos de limpieza <span className='block'>para el hogar</span>
               </p>
               <button className="absolute bottom-5 left-1/2 z-50 -translate-x-1/2 -translate-y-1/2 rounded-lg bg-white px-4 py-2 font-poppins text-2xl font-normal text-gray-600 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                 <Link href="search/jardin-y-exteriores">
@@ -82,13 +82,13 @@ const BannerCarousel = () => {
               </button>
             </BannerContent>
             <Image
-              src={banner2}
+              src={banner4}
               alt="Banner 2"
-              className="absolute left-0 top-0 h-auto w-full"
+              className="absolute left-0 bottom-[-100px] h-auto w-full"
               priority
             />
             <Image
-              src={banner2Mobile}
+              src={banner4Mobile}
               alt="Banner 2"
               className="absolute left-0 bottom-[-10rem] block h-auto w-full md:hidden"
               priority
@@ -106,7 +106,7 @@ const BannerCarousel = () => {
               <h2 className="w-full pt-10 md:pt-20 text-center font-poppins text-4xl md:text-6xl font-bold leading-tight text-white">
                 CUIDADO DEL AGUA
               </h2>
-              <p className="mt-4 px-8 text-center font-poppins text-4xl font-medium tracking-wide text-yellow-200">
+              <p className="mt-4 px-8 text-center font-poppins text-4xl font-medium tracking-wide text-cyan-200">
                 Te asesoramos como mejorar el cuidado de tu pileta
               </p>
             </div>

@@ -19,19 +19,28 @@ async function CollectionList() {
       brandId: vendor
     }));
 
-
   const brandFilters = [
     { title: 'Todas las marcas', slug: null, type: 'BRAND' as const, brandId: '' },
     ...availableBrands
   ];
 
-  const allFilters = [
-    ...collections,
-    ...brandFilters,
-    ...priceRanges
-  ];
-  
-  return <FilterList list={allFilters} title="Categorías" />;
+  // Separar los filtros en diferentes categorías
+  const collectionFilters = collections;
+  const priceFilters = priceRanges;
+
+  return (
+    <>
+    <div className='pb-10 border-b border-primary dark:border-primary mb-4'>
+      <FilterList list={collectionFilters} title="Colecciones" />
+      </div>
+      <div className='pb-10 border-b border-primary dark:border-primary mb-4'>
+      <FilterList list={brandFilters} title="Marcas" />
+      </div>
+      <div className='pb-10 border-b border-primary dark:border-primary mb-4'>
+      <FilterList list={priceFilters} title="Rangos de Precios" />
+      </div>
+    </>
+  );
 }
 
 const skeleton = 'mb-3 h-4 w-5/6 animate-pulse rounded';

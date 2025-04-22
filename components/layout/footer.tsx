@@ -1,5 +1,5 @@
-
 import { getMenu } from 'lib/shopify';
+import FooterMenu from './footer-menu';
 
 const { COMPANY_NAME, SITE_NAME } = process.env;
 
@@ -21,6 +21,7 @@ export default async function Footer() {
           </p>
           <hr className="mx-4 hidden h-4 w-[1px] border-l border-neutral-400 md:inline-block" />
     
+        <FooterMenu menu={menu} />
         </div>
       </div>
     </footer>

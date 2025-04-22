@@ -30,7 +30,7 @@ export default function FilterList({ list, title }: { list: ListItem[]; title?: 
             <FilterItemList list={list} />
           </Suspense>
         </ul>
-        <ul className="md:hidden">
+        <ul className="block md:hidden">
           <Suspense fallback={null}>
             <FilterItemDropdown list={list} />
           </Suspense>
