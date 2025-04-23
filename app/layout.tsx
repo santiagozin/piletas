@@ -17,6 +17,8 @@ const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
 const twitterCreator = TWITTER_CREATOR ? ensureStartsWith(TWITTER_CREATOR, '@') : undefined;
 const twitterSite = TWITTER_SITE ? ensureStartsWith(TWITTER_SITE, 'https://') : undefined;
 
+
+
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
@@ -36,6 +38,23 @@ export const metadata = {
     default: SITE_NAME!,
     template: `%s | ${SITE_NAME}`
   },
+  description: 'Tienda de productos para piletas y el cuidado del hogar',
+  openGraph: {
+    title: SITE_NAME,
+    description: 'Tienda de productos para piletas y el cuidado del hogar',
+    url: baseUrl,
+    siteName: SITE_NAME,
+    images: [
+      {
+        url: `${baseUrl}/logo.png`, 
+        width: 1200,
+        height: 630,
+        alt: 'Logo de la tienda'
+      }
+    ],
+    locale: 'es_ES',
+    type: 'website'
+  },
   robots: {
     follow: true,
     index: true
@@ -45,7 +64,8 @@ export const metadata = {
       twitter: {
         card: 'summary_large_image',
         creator: twitterCreator,
-        site: twitterSite
+        site: twitterSite,
+        images: [`${baseUrl}/logo.png`] 
       }
     })
 };
