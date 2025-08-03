@@ -10,7 +10,7 @@ import banner4 from '../app/assets/productos/riegos.png';
 const ContentHeader = () => {
   return (
     <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2 px-4">
-      <Link href="/search/cuidado-del-agua">
+      <Link href="/search/mantenimiento-del-agua">
         <div className="group relative h-[350px] w-full overflow-hidden bg-gradient-to-t from-primary to-secondary rounded-lg hover:brightness-90 hover:cursor-pointer shadow-lg">
           <p className="text-title-banner absolute left-10 top-10 text-pensok">
             Tratamiento <span className="block">del Agua</span>

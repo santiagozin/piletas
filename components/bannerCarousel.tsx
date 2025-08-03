@@ -44,7 +44,7 @@ const BannerCarousel = () => {
                 EN PRODUCTOS PARA PILETAS
               </p>
               <button className="absolute bottom-0 md:bottom-5 left-1/2 z-50 -translate-x-1/2 -translate-y-1/2 rounded-lg bg-white px-4 py-2 font-poppins text-2xl md:text-4xl font-normal text-blue-600 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                <Link href="search/cuidado-del-agua">
+                <Link href="search/mantenimiento-del-agua">
                   Conocer más
                 </Link>
               </button>
@@ -76,7 +76,7 @@ const BannerCarousel = () => {
                 Productos de limpieza <span className='block'>para el hogar</span>
               </p>
               <button className="absolute bottom-5 left-1/2 z-50 -translate-x-1/2 -translate-y-1/2 rounded-lg bg-white px-4 py-2 font-poppins text-2xl font-normal text-gray-600 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                <Link href="search/jardin-y-exteriores">
+                <Link href="search/limpieza">
                   Ver categorías
                 </Link>
               </button>

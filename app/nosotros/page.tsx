@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { FaGoogle, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import Footer from '../../components/layout/footer';
 import banner from '../assets/nosotros.jpg';
@@ -43,24 +42,36 @@ const Nosotros = () => {
                 También podés seguirnos en nuestras redes sociales
               </p>
               <div className='flex gap-4 justify-center items-center mt-4'>
-                <Link href="https://www.instagram.com/pensok.piletas">
+                <a
+                  href="https://www.instagram.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FaInstagram
                     size={30}
                     className="text-primary cursor-pointer transition-all duration-300 hover:text-primary/80"
                   />
-                </Link>
-                <Link href="https://g.co/kgs/rQT8ErS">
+                </a>
+                <a
+                  href="https://g.co/kgs/rQT8ErS"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FaGoogle
                     size={30}
                     className="text-primary cursor-pointer transition-all duration-300 hover:text-primary/80"
                   />
-                </Link>
-                <Link href="https://wa.me/54901170645115">
+                </a>
+                <a
+                  href="https://wa.me/54901170645115"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FaWhatsapp
                     size={30}
                     className="text-primary cursor-pointer transition-all duration-300 hover:text-primary/80"
                   />
-                </Link>
+                </a>
               </div>
             </div>
           </div>

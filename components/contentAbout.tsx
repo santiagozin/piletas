@@ -79,14 +79,25 @@ const ContentAbout = () => {
           <Image src={logo} alt="Logo" width={130} height={130} />
           <h2 className="font-poppins text-2xl font-medium">Seguinos en nuestras redes</h2>
           <div className="flex items-center gap-4">
+            <a
+                  href="https://www.instagram.com/reel/DMGpECquwmN/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                > 
             <FaInstagram
               size={30}
-              className="text-pensok cursor-pointer transition-all duration-300 hover:text-primary/80"
-            />
+              className="text-pensok cursor-pointer transition-all duration-300 hover:text-primary/80" />
+            </a>
+            <a
+                  href="https://www.google.com/search?sca_esv=36222d67fa35b916&sxsrf=AE3TifNwGBfXWnc-g82eKiu0E7RaUXVwNA%3A1754265279640&q=Pensok&stick=H4sIAAAAAAAAAONgU1IxqLA0TUq2MDYwMEgzNbU0NUqyMqgwSbI0MjYyNTYyTE4xSTZcxMoWkJpXnJ8NAEhaLigxAAAA&mat=CbH4D2cPs1pN&ved=2ahUKEwjXvNa26--OAxVnppUCHWzoPDQQrMcEegQIHhAC/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                > 
             <FaGoogle
               size={28}
               className="text-pensok cursor-pointer transition-all duration-300 hover:text-primary/80"
             />
+            </a>
           </div>
         </div>
       </div>
