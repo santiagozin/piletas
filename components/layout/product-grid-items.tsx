@@ -9,7 +9,7 @@ import { useCart } from '../cart/cart-context';
 import { GridTileImage } from '../grid/tile';
 
 function AddToCartButton({ product }: { product: Product }) {
-  console.log('AddToCartButton rendering for product:', product.title);
+  // console.log('AddToCartButton rendering for product:', product.title);
 
   const { addCartItem } = useCart();
   const [message, formAction] = useActionState(addItem, null);
@@ -43,7 +43,7 @@ function AddToCartButton({ product }: { product: Product }) {
   };
 
   return (
-    <div className="absolute top-2 right-2 z-50">
+    <div className="absolute bottom-2 right-2 z-50">
       <button
         onClick={handleAddToCart}
         className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-primary shadow-lg hover:bg-primary/90 hover:text-white"
@@ -59,10 +59,10 @@ function AddToCartButton({ product }: { product: Product }) {
 }
 
 export function ProductGridItems({ products }: { products: Product[] }) {
-  console.log('ProductGridItems rendering with products:', products.length);
+  // console.log('ProductGridItems rendering with products:', products.length);
 
   if (!products || products.length === 0) {
-    console.log('No products to render');
+    // console.log('No products to render');
     return null;
   }
 

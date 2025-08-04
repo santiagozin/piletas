@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 
 function Grid(props: React.ComponentProps<'ul'>) {
-  console.log('Grid rendering with children:', props.children);
+  // console.log('Grid rendering with children:', props.children);
   
   return (
     <ul {...props} className={clsx('grid grid-flow-row gap-x-2 gap-y-8', props.className)}>
@@ -11,7 +11,7 @@ function Grid(props: React.ComponentProps<'ul'>) {
 }
 
 function GridItem(props: React.ComponentProps<'li'>) {
-  console.log('GridItem rendering with children:', props.children);
+
   
   return (
     <li {...props} className={clsx('aspect-square transition-opacity', props.className)}>
