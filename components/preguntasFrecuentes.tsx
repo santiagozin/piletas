@@ -49,16 +49,6 @@ export function PreguntasFrecuentes() {
                 Podes escribirnos a nuestro whatsapp o contactarnos por mail
               </AccordionContent>
             </AccordionItem>
-            <AccordionItem value="item-5">
-              <AccordionTrigger className="text-left font-poppins text-2xl font-bold">
-                ¿Ofrecen envíos internacionales?
-              </AccordionTrigger>
-              <AccordionContent className="text-gray-500 text-lg font-poppins">
-                Sí, ofrecemos envíos a más de 100 países. Los tiempos de entrega y costos varían según la ubicación.
-                Puedes verificar la disponibilidad y los costos de envío durante el proceso de compra antes de finalizar
-                tu pedido.
-              </AccordionContent>
-            </AccordionItem>
           </Accordion>
         </div>
       </div>
