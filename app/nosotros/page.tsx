@@ -63,7 +63,7 @@ const Nosotros = () => {
                   />
                 </a>
                 <a
-                  href="https://wa.me/+54901170645115"
+                  href="https://wa.me/1170645115"  
                   target="_blank"
                   rel="noopener noreferrer"
                 >

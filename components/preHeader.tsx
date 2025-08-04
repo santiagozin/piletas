@@ -20,7 +20,7 @@ const PreHeader = () => {
             className="text-pensok cursor-pointer transition-all duration-300 hover:text-primary/80"
           />
         </Link>
-        <Link href="https://wa.me/54901170645115">
+        <Link href="https://wa.me/1170645115">
           <FaWhatsapp
             size={20}
             className="text-pensok cursor-pointer transition-all duration-300 hover:text-primary/80"

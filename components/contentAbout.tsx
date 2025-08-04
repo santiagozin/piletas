@@ -60,7 +60,7 @@ const ContentAbout = () => {
             <p className="text-lg text-center sm:text-left">Granadero Juan Mateo Gelves 1126, Pilar</p>
           </div>
           <div className="flex items-center gap-2 text-lg flex-col sm:flex-row">
-            <Link href="https://wa.me/+54901170645115" className='flex items-center gap-2 group'> 
+            <Link href="https://wa.me/1170645115" className='flex items-center gap-2 group'> 
               <FaWhatsapp
                 size={30}
                 className="text-pensok cursor-pointer transition-all duration-300 group-hover:text-primary/80"
@@ -71,7 +71,7 @@ const ContentAbout = () => {
 
           <div className="flex items-center gap-2 flex-col sm:flex-row">
             <RiPhoneFill className="text-pensok h-6 w-6 text-2xl" />
-            <p className="text-lg">+54 11 1234-5678</p>
+            <p className="text-lg">+54 11 7064-5115</p>
           </div>
         </div>
 
