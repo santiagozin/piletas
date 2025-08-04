@@ -60,7 +60,7 @@ const ContentAbout = () => {
             <p className="text-lg text-center sm:text-left">Granadero Juan Mateo Gelves 1126, Pilar</p>
           </div>
           <div className="flex items-center gap-2 text-lg flex-col sm:flex-row">
-            <Link href="https://wa.me/+541112345678" className='flex items-center gap-2 group'> 
+            <Link href="https://wa.me/+54901170645115" className='flex items-center gap-2 group'> 
               <FaWhatsapp
                 size={30}
                 className="text-pensok cursor-pointer transition-all duration-300 group-hover:text-primary/80"
