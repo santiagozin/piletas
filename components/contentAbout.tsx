@@ -38,24 +38,25 @@ const ContentAbout = () => {
   }, []);
 
   return (
-    <div className=" px-10 relative" id="contacto">
+    <div className=" md:px-10 relative" id="contacto">
             <PreguntasFrecuentes /> 
-      <div className="flex items-center justify-start gap-2 border-t border-gray-200 pt-10">
+      <div className=" items-center justify-start gap-2 border-t border-gray-200 pt-10 hidden md:flex">
         <div className="w-20 border-b-2 border-black"></div>
         <h2 className="text-title-section text-center">CONTACTO</h2>
       </div>
       <div className='flex justify-center items-center relative bg-pensok h-[300px] overflow-hidden my-8'>
+        <span className='text-4xl font-bold text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:hidden'>CONTACTO</span>
             <Image className='opacity-30' src={contacto} alt="Tienda" />
           </div>
 
-      <p className="mt-3 max-w-2xl font-poppins text-xl text-gray-500">
-      Podes encontrarnos en nuestras redes sociales <span className='block'>o contactarnos por whatsapp </span><span className='block'>para cualquier consulta.</span>
+      <p className="mt-3 max-w-2xl font-poppins text-xl text-gray-500 px-4 text-center md:text-left">
+      Encontranos en nuestras redes sociales <span className='md:block'>o contactarnos por whatsapp </span><span className='md:block'>para cualquier consulta.</span>
       </p>
 
       <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-2 pb-20">
         <div className="mr-auto flex flex-col gap-4">
-          <h3 className="font-poppins text-2xl font-medium mb-4 md:mb-0 text-center sm:text-left">Podes encontrarnos en</h3>
-          <div className="flex items-center gap-2 flex-col sm:flex-row">
+          <h3 className="font-poppins text-2xl font-medium mb-4 md:mb-0 text-center sm:text-left">Tenemos un local en</h3>
+          <div className="flex items-center gap-2 flex-col sm:flex-row px-4 md:px-0">
             <RiMapPin2Fill className="text-pensok h-6 w-6 text-2xl" />
             <p className="text-lg text-center sm:text-left">Granadero Juan Mateo Gelves 1126, Pilar</p>
           </div>
@@ -77,7 +78,7 @@ const ContentAbout = () => {
 
         <div className="flex flex-col items-center gap-6">
           <Image src={logo} alt="Logo" width={130} height={130} />
-          <h2 className="font-poppins text-2xl font-medium">Seguinos en nuestras redes</h2>
+          <h2 className="font-poppins text-lg md:text-2xl font-medium">Seguinos en nuestras redes</h2>
           <div className="flex items-center gap-4">
             <a
                   href="https://www.instagram.com/reel/DMGpECquwmN/"
