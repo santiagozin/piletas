@@ -7,8 +7,13 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { SwiperSlide } from 'swiper/react';
+import banner1Mobile from '../app/assets/banners/banner1-mobile.png';
+import banner1 from '../app/assets/banners/banner1.png';
 import banner3Mobile from '../app/assets/banners/banner3-mobile.png';
 import banner3 from '../app/assets/banners/banner3.png';
+import banner4Mobile from '../app/assets/banners/banner4-mobile.png';
+import banner4 from '../app/assets/banners/banner4.png';
+import BannerContent from './bannerContent';
 
 const Swiper = dynamic(() => import('swiper/react').then((mod) => mod.Swiper), {
   ssr: true
@@ -26,7 +31,7 @@ const BannerCarousel = () => {
         slidesPerView={1}
         className="h-[600px] w-full"
       >
-        {/* <SwiperSlide>
+       <SwiperSlide>
           <div className="relative h-[600px] w-full">
             <div className="font-poppins absolute right-1/4 top-6 z-50 flex items-center rounded-full bg-white px-4 py-2 text-xl font-bold text-blue-600 shadow-2xl md:left-1/2 md:right-auto md:top-32 md:-translate-x-1/2 md:rotate-12 md:text-4xl">
               <span className="mr-2 text-sm font-normal md:text-[20px]">Hasta</span>
@@ -86,15 +91,15 @@ const BannerCarousel = () => {
               priority
             />
           </div>
-        </SwiperSlide> */}
+        </SwiperSlide> 
         
         <SwiperSlide>
-          <div className="relative h-[600px] w-full">
+          <div className="relative h-[600px] w-full ">
             <div className="font-poppins absolute left-[10%] top-10 z-50 flex items-center rounded-full bg-white px-4 py-2 text-2xl font-medium text-gray-600 shadow-2xl md:left-1/2 md:top-32 md:-translate-x-1/2 md:text-3xl">
               No sabes que necesitas?
             </div>
             <div
-              className={`absolute left-0 top-36 z-10 h-96 w-full rounded-xl bg-teal-500 bg-opacity-70 shadow-xl md:left-1/4 md:w-1/2`}
+              className={`absolute left-4 top-36 z-10 h-96 w-full max-w-sm md:max-w-none rounded-xl bg-teal-500 bg-opacity-70 shadow-xl md:left-1/4 md:w-1/2`}
             >
               <h2 className="font-poppins w-full pt-10 text-center text-4xl font-bold leading-tight text-white md:pt-20 md:text-6xl">
                 CUIDADO DEL AGUA
@@ -112,7 +117,7 @@ const BannerCarousel = () => {
             <Image
               src={banner3Mobile}
               alt="Banner 3"
-              className="absolute bottom-0 left-0 block h-auto w-full md:hidden"
+              className="absolute bottom-0 left-0 block h-auto w-full md:hidden "
               priority
             />
             <button className="w-[80%] md:w-auto font-poppins absolute bottom-24 left-1/2 z-50 -translate-x-1/2 rounded-lg bg-white px-4 py-2 text-2xl font-normal text-gray-600 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
