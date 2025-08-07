@@ -7,13 +7,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { SwiperSlide } from 'swiper/react';
-import banner1Mobile from '../app/assets/banners/banner1-mobile.png';
-import banner1 from '../app/assets/banners/banner1.png';
 import banner3Mobile from '../app/assets/banners/banner3-mobile.png';
 import banner3 from '../app/assets/banners/banner3.png';
-import banner4Mobile from '../app/assets/banners/banner4-mobile.png';
-import banner4 from '../app/assets/banners/banner4.png';
-import BannerContent from './bannerContent';
 
 const Swiper = dynamic(() => import('swiper/react').then((mod) => mod.Swiper), {
   ssr: true
@@ -31,7 +26,7 @@ const BannerCarousel = () => {
         slidesPerView={1}
         className="h-[600px] w-full"
       >
-        <SwiperSlide>
+        {/* <SwiperSlide>
           <div className="relative h-[600px] w-full">
             <div className="font-poppins absolute right-1/4 top-6 z-50 flex items-center rounded-full bg-white px-4 py-2 text-xl font-bold text-blue-600 shadow-2xl md:left-1/2 md:right-auto md:top-32 md:-translate-x-1/2 md:rotate-12 md:text-4xl">
               <span className="mr-2 text-sm font-normal md:text-[20px]">Hasta</span>
@@ -61,20 +56,20 @@ const BannerCarousel = () => {
               priority
             />
           </div>
-        </SwiperSlide>
-        <SwiperSlide>
+        </SwiperSlide> 
+       <SwiperSlide>
           <div className="relative h-[600px] w-full">
-            <div className="font-poppins absolute right-[37%] top-28 z-50 hidden -translate-x-1/2 items-center rounded-full bg-white px-4 py-2 text-3xl font-medium text-gray-600 shadow-2xl md:flex">
+            <div className="font-poppins absolute right-[14%] md:right-[37%] top-5 md:top-28 z-50 -translate-x-1/2 items-center rounded-full bg-white px-4 py-2 text-xl font-medium text-gray-600 shadow-2xl md:flex md:text-3xl">
               NOVEDADES
             </div>
             <BannerContent color="green">
               <h2 className="font-poppins hidden w-full text-wrap px-2 pt-10 text-center text-4xl font-bold leading-tight text-white md:block md:pt-20 md:text-6xl">
                 Nueva linea <span className="text-amber-100">HOME</span>
               </h2>
-              <p className="font-poppins absolute bottom-[40%] left-1/2 z-50 w-3/4 -translate-x-1/2 text-center text-4xl font-medium text-amber-200 md:bottom-[36%] md:text-4xl md:tracking-wide">
+              <p className="leading-[1.5] font-poppins absolute bottom-[30%] left-1/2 z-50 w-3/4 -translate-x-1/2 text-center text-4xl md:font-medium font-bold uppercase text-amber-200 md:bottom-[36%] md:text-4xl md:tracking-wide">
                 Productos de limpieza <span className="block">para el hogar</span>
               </p>
-              <button className="font-poppins absolute bottom-[-10px] left-1/2 z-50 -translate-x-1/2 -translate-y-1/2 rounded-lg bg-white px-4 py-2 text-lg font-normal text-gray-600 transition-all duration-300 hover:scale-105 hover:shadow-2xl md:bottom-5 md:text-2xl">
+              <button className="w-[80%] font-poppins absolute bottom-[-45%] left-1/2 z-50 -translate-x-1/2 md:-translate-y-1/2 -translate-y-3/4 rounded-lg bg-primary text-white md:bg-white px-4 py-2 text-2xl font-normal md:text-gray-600 transition-all duration-300 hover:scale-105 hover:shadow-2xl md:bottom-5 md:text-2xl">
                 <Link href="search/limpieza">Ver categorías</Link>
               </button>
             </BannerContent>
@@ -91,20 +86,21 @@ const BannerCarousel = () => {
               priority
             />
           </div>
-        </SwiperSlide>
+        </SwiperSlide> */}
+        
         <SwiperSlide>
           <div className="relative h-[600px] w-full">
-            <div className="font-poppins absolute left-1/4 top-10 z-50 flex items-center rounded-full bg-white px-4 py-2 text-2xl font-medium text-gray-600 shadow-2xl md:left-1/2 md:top-32 md:-translate-x-1/2 md:text-3xl">
-              Te ayudamos
+            <div className="font-poppins absolute left-[10%] top-10 z-50 flex items-center rounded-full bg-white px-4 py-2 text-2xl font-medium text-gray-600 shadow-2xl md:left-1/2 md:top-32 md:-translate-x-1/2 md:text-3xl">
+              No sabes que necesitas?
             </div>
             <div
               className={`absolute left-0 top-36 z-10 h-96 w-full rounded-xl bg-teal-500 bg-opacity-70 shadow-xl md:left-1/4 md:w-1/2`}
             >
-              <h2 className="font-poppins w-full pt-10 text-center text-3xl font-bold leading-tight text-white md:pt-20 md:text-6xl">
+              <h2 className="font-poppins w-full pt-10 text-center text-4xl font-bold leading-tight text-white md:pt-20 md:text-6xl">
                 CUIDADO DEL AGUA
               </h2>
               <p className="font-poppins mt-4 px-8 text-center text-3xl font-medium tracking-wide text-cyan-200">
-                Te asesoramos como mejorar el cuidado de tu pileta
+                Te asesoramos con IA como mejorar el cuidado de tu pileta
               </p>
             </div>
             <Image
@@ -119,7 +115,7 @@ const BannerCarousel = () => {
               className="absolute bottom-0 left-0 block h-auto w-full md:hidden"
               priority
             />
-            <button className="font-poppins absolute bottom-24 left-1/2 z-50 -translate-x-1/2 rounded-lg bg-white px-4 py-2 text-2xl font-normal text-gray-600 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+            <button className="w-[80%] md:w-auto font-poppins absolute bottom-24 left-1/2 z-50 -translate-x-1/2 rounded-lg bg-white px-4 py-2 text-2xl font-normal text-gray-600 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
               <Link href="#ayuda">Consultar</Link>
             </button>
           </div>
