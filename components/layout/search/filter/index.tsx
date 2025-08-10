@@ -1,10 +1,7 @@
-import { BrandFilterItem, PriceFilterItem, SortFilterItem } from 'lib/constants';
 import { Suspense } from 'react';
 import FilterItemDropdown from './dropdown';
 import { FilterItem } from './item';
-
-export type ListItem = SortFilterItem | PathFilterItem | PriceFilterItem | BrandFilterItem;
-export type PathFilterItem = { title: string; path: string };
+import type { ListItem } from './types';
 
 function FilterItemList({ list }: { list: ListItem[] }) {
   return (

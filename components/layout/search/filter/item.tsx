@@ -5,7 +5,7 @@ import type { BrandFilterItem, PriceFilterItem, SortFilterItem } from 'lib/const
 import { createUrl } from 'lib/utils';
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
-import type { ListItem, PathFilterItem } from '.';
+import type { ListItem, PathFilterItem } from './types';
 
 function PathFilterItem({ item }: { item: PathFilterItem }) {
   const pathname = usePathname();
