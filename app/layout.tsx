@@ -42,6 +42,9 @@ export const metadata = {
     template: `%s | ${SITE_NAME}`
   },
   description: 'Tienda de productos para piletas y el cuidado del hogar',
+  verification: {
+    google: '2E4OVl1cZ_6mALqkDoC8DY18-WTnv3hkeS86rAEZD5Q'
+  },
   openGraph: {
     title: SITE_NAME,
     description: 'Tienda de productos para piletas y el cuidado del hogar',
