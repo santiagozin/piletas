@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import Grid from 'components/grid';
 import { ProductGridItems } from 'components/layout/product-grid-items';
 import { defaultSort, sorting } from 'lib/constants';
+import { parseFiltersFromSearchParams } from 'lib/utils';
 
 export async function generateMetadata(props: {
   params: Promise<{ collection: string }>;
@@ -29,7 +30,17 @@ export default async function CategoryPage(props: {
   const params = await props.params;
   const { sort } = searchParams as { [key: string]: string };
   const { sortKey, reverse } = sorting.find((item) => item.slug === sort) || defaultSort;
-  const products = await getCollectionProducts({ collection: params.collection, sortKey, reverse });
+  
+  // Parsear filtros de marca y precio
+  const { brand, priceRange } = parseFiltersFromSearchParams(searchParams || {});
+  
+  const products = await getCollectionProducts({ 
+    collection: params.collection, 
+    sortKey, 
+    reverse,
+    brand,
+    priceRange
+  });
 
   return (
     <section>

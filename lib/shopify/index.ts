@@ -288,11 +288,15 @@ export async function getCollection(handle: string): Promise<Collection | undefi
 export async function getCollectionProducts({
   collection,
   reverse,
-  sortKey
+  sortKey,
+  brand,
+  priceRange
 }: {
   collection: string;
   reverse?: boolean;
   sortKey?: string;
+  brand?: string;
+  priceRange?: { min: number; max: number };
 }): Promise<Product[]> {
   const res = await shopifyFetch<ShopifyCollectionProductsOperation>({
     query: getCollectionProductsQuery,
@@ -309,7 +313,28 @@ export async function getCollectionProducts({
     return [];
   }
 
-  return reshapeProducts(removeEdgesAndNodes(res.body.data.collection.products));
+  let products = reshapeProducts(removeEdgesAndNodes(res.body.data.collection.products));
+
+  // Filtrar por marca si se especifica
+  if (brand && brand !== '') {
+    products = products.filter(product => 
+      product.vendor.toLowerCase() === brand.toLowerCase()
+    );
+  }
+
+  // Filtrar por rango de precio si se especifica
+  if (priceRange && (priceRange.min > 0 || priceRange.max < Infinity)) {
+    products = products.filter(product => {
+      const price = parseFloat(product.priceRange.minVariantPrice.amount);
+      if (priceRange.max === 0) {
+        // "Más de X" - solo mínimo
+        return price >= priceRange.min;
+      }
+      return price >= priceRange.min && price <= priceRange.max;
+    });
+  }
+
+  return products;
 }
 
 export async function getCollections(): Promise<Collection[]> {
@@ -404,11 +429,15 @@ export async function getProductRecommendations(productId: string): Promise<Prod
 export async function getProducts({
   query,
   reverse,
-  sortKey
+  sortKey,
+  brand,
+  priceRange
 }: {
   query?: string;
   reverse?: boolean;
   sortKey?: string;
+  brand?: string;
+  priceRange?: { min: number; max: number };
 }): Promise<Product[]> {
   const res = await shopifyFetch<ShopifyProductsOperation>({
     query: getProductsQuery,
@@ -420,7 +449,28 @@ export async function getProducts({
     }
   });
 
-  return reshapeProducts(removeEdgesAndNodes(res.body.data.products));
+  let products = reshapeProducts(removeEdgesAndNodes(res.body.data.products));
+
+  // Filtrar por marca si se especifica
+  if (brand && brand !== '') {
+    products = products.filter(product => 
+      product.vendor.toLowerCase() === brand.toLowerCase()
+    );
+  }
+
+  // Filtrar por rango de precio si se especifica
+  if (priceRange && (priceRange.min > 0 || priceRange.max < Infinity)) {
+    products = products.filter(product => {
+      const price = parseFloat(product.priceRange.minVariantPrice.amount);
+      if (priceRange.max === 0) {
+        // "Más de X" - solo mínimo
+        return price >= priceRange.min;
+      }
+      return price >= priceRange.min && price <= priceRange.max;
+    });
+  }
+
+  return products;
 }
 
 // This is called from `app/api/revalidate.ts` so providers can control revalidation logic.

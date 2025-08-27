@@ -2,6 +2,7 @@ import Grid from 'components/grid';
 import { ProductGridItems } from 'components/layout/product-grid-items';
 import { defaultSort, sorting } from 'lib/constants';
 import { getProducts } from 'lib/shopify';
+import { parseFiltersFromSearchParams } from 'lib/utils';
 
 export const metadata = {
   title: 'Search',
@@ -22,8 +23,17 @@ export default async function SearchPage({ params, searchParams }: SearchPagePro
     const resolvedSearchParams = await searchParams;
     const { sort, q: searchValue } = resolvedSearchParams as { [key: string]: string };
     const { sortKey, reverse } = sorting.find((item) => item.slug === sort) || defaultSort;
+    
+    // Parsear filtros de marca y precio
+    const { brand, priceRange } = parseFiltersFromSearchParams(resolvedSearchParams);
 
-    const productsPromise = getProducts({ sortKey, reverse, query: searchValue });
+    const productsPromise = getProducts({ 
+      sortKey, 
+      reverse, 
+      query: searchValue,
+      brand,
+      priceRange
+    });
     const timeoutPromise = new Promise((_, reject) =>
       setTimeout(() => reject(new Error('Timeout')), 5000)
     );

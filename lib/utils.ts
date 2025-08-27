@@ -1,10 +1,27 @@
 import { ReadonlyURLSearchParams } from 'next/navigation';
+import { priceRanges } from './constants';
 
 export const createUrl = (pathname: string, params: URLSearchParams | ReadonlyURLSearchParams) => {
   const paramsString = params.toString();
   const queryString = `${paramsString.length ? '?' : ''}${paramsString}`;
 
   return `${pathname}${queryString}`;
+};
+
+export const parseFiltersFromSearchParams = (searchParams: { [key: string]: string | string[] | undefined }) => {
+  const brand = typeof searchParams.brand === 'string' ? searchParams.brand : undefined;
+  const priceParam = typeof searchParams.price === 'string' ? searchParams.price : undefined;
+  
+  let priceRange: { min: number; max: number } | undefined;
+  
+  if (priceParam) {
+    const priceFilter = priceRanges.find(range => range.slug === priceParam);
+    if (priceFilter) {
+      priceRange = priceFilter.priceRange;
+    }
+  }
+  
+  return { brand, priceRange };
 };
 
 export const ensureStartsWith = (stringToCheck: string, startsWith: string) =>
