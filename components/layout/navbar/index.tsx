@@ -15,7 +15,7 @@ export async function Navbar() {
   const menu = await getMenu('next-js-frontend-header-menu');
 
   return (
-    <nav className="relative flex items-center justify-between p-1 lg:px-6 bg-[#294a72]">
+    <nav className="relative flex items-center justify-between p-1 lg:px-6 bg-[#294a72] w-full max-w-full overflow-hidden">
       <div className="block flex-none md:hidden ml-2">
         <Suspense fallback={null}>
           <MobileMenu menu={menu} />
@@ -34,7 +34,7 @@ export async function Navbar() {
             </div>
           </Link>
           {menu.length ? (
-            <ul className="hidden gap-6 text-sm md:flex md:items-center min-w-96 ml-2">
+            <ul className="hidden gap-6 text-sm md:flex md:items-center ml-2">
               {menu.map((item: Menu) => (
                 <li key={item.title}>
                   <Link

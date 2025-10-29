@@ -5,19 +5,28 @@ import { Product } from 'lib/shopify/types';
 import { VariantSelector } from './variant-selector';
 
 export function ProductDescription({ product }: { product: Product }) {
-   console.log(
-    product, 'product'
-   )
+  const isRobot = product.title?.toLowerCase().startsWith('robot');
   return (
     <>
       <div className="mb-6 flex flex-col border-b pb-6 dark:border-neutral-700">
         <h1 className="mb-2 text-center text-2xl md:text-4xl font-medium">{product.title}</h1>
-        <div className="mr-auto w-auto rounded-full bg-primary p-2 text-sm text-white">
-          <Price
-            amount={product.priceRange.maxVariantPrice.amount}
-            currencyCode={product.priceRange.maxVariantPrice.currencyCode}
-          />
-        </div>
+        {isRobot ? (
+          <a
+            href="https://wa.me/1170645115"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mr-auto w-auto rounded-full bg-primary p-2 text-sm text-white hover:bg-primary/90"
+          >
+            Contáctanos
+          </a>
+        ) : (
+          <div className="mr-auto w-auto rounded-full bg-primary p-2 text-sm text-white">
+            <Price
+              amount={product.priceRange.maxVariantPrice.amount}
+              currencyCode={product.priceRange.maxVariantPrice.currencyCode}
+            />
+          </div>
+        )}
       </div>
       <VariantSelector options={product.options} variants={product.variants} />
       {product.descriptionHtml ? (
@@ -26,7 +35,7 @@ export function ProductDescription({ product }: { product: Product }) {
           html={product.descriptionHtml}
         />
       ) : null}
-      <AddToCart product={product} />
+      {isRobot ? null : <AddToCart product={product} />}
     </>
   );
 }

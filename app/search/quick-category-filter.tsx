@@ -25,11 +25,11 @@ export default function QuickCategoryFilter() {
             className={clsx(
               'rounded-full border px-4 py-2 text-sm md:text-xl font-medium transition-colors w-full h-16 flex items-center justify-center',
               active
-                ? ' text-white bg-gradient-to-r from-primary to-cyan-700'
+                ? ' text-white bg-primary'
                 : 'bg-white text-primary border-primary dark:bg-transparent dark:text-white'
             )}
           >
-            {cat.title}
+            {cat.title} 
           </Link>
         );
       })}

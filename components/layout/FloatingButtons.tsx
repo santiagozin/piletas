@@ -37,7 +37,7 @@ export function FloatingButtons() {
           className="bg-gray-700 hover:bg-gray-800 text-white p-3 rounded-full shadow-lg transition-all"
           aria-label="Volver arriba"
         >
-          <FaArrowUp size={28} />
+          <FaArrowUp size={28} className='pl-1' />
         </button>
       )}
     </div>

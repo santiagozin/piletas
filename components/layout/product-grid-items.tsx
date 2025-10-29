@@ -69,6 +69,7 @@ export function ProductGridItems({ products }: { products: Product[] }) {
   return (
     <>
       {products.map((product) => {
+        const isRobot = product.title?.toLowerCase().startsWith('robot');
         return (
           <li key={product.handle} className="flex flex-col relative">
             <Link href={`/product/${product.handle}`} className="block">
@@ -81,7 +82,10 @@ export function ProductGridItems({ products }: { products: Product[] }) {
                 label={{
                   title: product.title,
                   amount: product.priceRange.maxVariantPrice.amount,
-                  currencyCode: product.priceRange.maxVariantPrice.currencyCode
+                  currencyCode: product.priceRange.maxVariantPrice.currencyCode,
+                  showPrice: !isRobot,
+                  ctaText: 'Contáctanos',
+                  ctaHref: 'https://wa.me/1170645115'
                 }}
               />
             </Link>

@@ -16,7 +16,7 @@ export default function Search() {
         placeholder="Buscar productos..."
         autoComplete="off"
         defaultValue={searchParams?.get('q') || ''}
-        className="text-xl w-full rounded-lg border bg-white px-4 py-3 text-[#294a72] placeholder:text-pensok md:text-lg dark:border-primary dark:bg-transparent dark:text-white dark:placeholder:text-neutral-400"
+        className="text-md w-full rounded-sm border bg-white px-4 py-3 text-[#294a72] placeholder:text-pensok dark:border-primary dark:bg-transparent dark:text-white dark:placeholder:text-neutral-400"
       />
       <div className="absolute right-0 top-0 mr-3 flex h-full items-center">
         <MagnifyingGlassIcon className="h-6 text-pensok" />

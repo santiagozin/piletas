@@ -6,6 +6,7 @@ import ContentHeader from 'components/contentHeader';
 import ContentProcess from 'components/contentProcess';
 import { FourItemGrid } from 'components/grid/three-items';
 import Footer from 'components/layout/footer';
+import SocialSection from 'components/socialSection';
 
 export const metadata = {
   description: 'Tienda de productos para piletas y el cuidado del hogar',
@@ -22,6 +23,7 @@ export default function HomePage() {
       <ContentHeader />
       <FourItemGrid />
       <ContentProcess />
+      <SocialSection />
       <Carousel />
       <Chatbot />
       <ContentAbout />

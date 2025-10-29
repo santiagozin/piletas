@@ -44,7 +44,7 @@ export async function POST(request: Request) {
     }));
 
     const model = genAI.getGenerativeModel({
-      model: "gemini-1.5-pro",
+      model: "gemini-2.5-pro",
       safetySettings
     });
 
@@ -52,7 +52,7 @@ export async function POST(request: Request) {
     ${productList.map(p => `${p.name}: ${p.description} - $${p.price}`).join('\n')}
 
     Pregunta del cliente: ${message}
-
+   Las respuestas deben ser en español y simples, no recomendar mas de un producto.
     Responde de manera amigable y concisa. Si la consulta está relacionada con algún problema que se pueda resolver con alguno de los productos listados, recomiéndalo.`;
 
     const result = await model.generateContent(prompt);

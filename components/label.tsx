@@ -5,12 +5,18 @@ const Label = ({
   title,
   amount,
   currencyCode,
-  position = 'bottom'
+  position = 'bottom',
+  showPrice = true,
+  ctaText = 'Contáctanos',
+  ctaHref
 }: {
   title: string;
   amount: string;
   currencyCode: string;
   position?: 'bottom' | 'center';
+  showPrice?: boolean;
+  ctaText?: string;
+  ctaHref?: string;
 }) => {
 
   
@@ -27,12 +33,26 @@ const Label = ({
       </div>
 
     </div>
-    <Price
-          className="flex-none rounded-full bg-primary p-2 text-white text-[15px] absolute bottom-2 left-2 font-medium"
-          amount={amount}
-          currencyCode={currencyCode}
-          currencyCodeClassName="hidden @[275px]/label:inline"
-        />
+    {showPrice ? (
+      <Price
+        className="flex-none rounded-full bg-primary p-2 text-white text-[15px] absolute bottom-2 left-2 font-medium"
+        amount={amount}
+        currencyCode={currencyCode}
+        currencyCodeClassName="hidden @[275px]/label:inline"
+      />
+    ) : (
+      <button
+        type="button"
+        onClick={() => {
+          if (typeof window !== 'undefined') {
+            window.open(ctaHref || 'https://wa.me/1170645115', '_blank', 'noopener,noreferrer');
+          }
+        }}
+        className="flex-none rounded-full bg-primary p-2 text-white text-[15px] absolute bottom-2 left-2 font-medium hover:bg-primary/90"
+      >
+        {ctaText}
+      </button>
+    )}
     </>
   );
 };

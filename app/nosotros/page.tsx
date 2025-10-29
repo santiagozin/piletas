@@ -8,13 +8,18 @@ const Nosotros = () => {
   return (
     <>
       <div className="mb-10">
-        <div className="bg-pensok relative flex h-[200px] w-full items-center justify-center overflow-hidden ">
-          <h2 className="z-10 text-5xl font-bold text-white">Sobre Nosotros</h2>
-          <Image
-            src={banner}
-            className="absolute md:bottom-[-300px] left-0 right-0 opacity-40"
-            alt="Banner"
-          />
+        <div className="bg-gradient-to-b from-[#e6f0fd] to-[#adcbed] relative flex h-[200px] w-full items-center  overflow-hidden ">
+          <h2 className="z-10 text-5xl font-bold text-pensok ml-[15%]">Sobre Nosotros</h2>
+          <div className="absolute inset-y-0 right-0 h-full w-1/2">
+            <Image
+              src={banner}
+              alt="Banner"
+              fill
+              className="object-cover opacity-40"
+              sizes="(min-width: 768px) 50vw, 100vw"
+              priority
+            />
+          </div>
         </div>
         <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="flex flex-col px-10">

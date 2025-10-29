@@ -4,7 +4,7 @@ import { FaGoogle, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 const PreHeader = () => {
   return (
     <div className="text-pensok bg-gray-200 py-1 text-center flex justify-center">
-      <div className='mr-4 text-sm md:text-base'>
+      <div className='mr-4 text-xs md:text-sm'>
         <p>Granadero Juan Mateo Gelves 1126, Pilar </p>
       </div>{' '}
       <div className="flex items-center gap-4 border-l-2 border-gray-300 pl-4 px-2">
