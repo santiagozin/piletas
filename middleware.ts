@@ -24,8 +24,11 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Obtener país desde la geolocalización del edge (Vercel) o header de fallback
-  const detectedCountry = request.geo?.country || request.headers.get('x-vercel-ip-country') || 'XX';
+  // Obtener país desde header de Vercel; opcionalmente usar geo con cast para no romper tipos
+  const detectedCountry =
+    request.headers.get('x-vercel-ip-country') ||
+    (request as unknown as { geo?: { country?: string } }).geo?.country ||
+    'XX';
 
   if (!ALLOWED_COUNTRIES.has(detectedCountry)) {
     // Podés cambiar a redirect hacia una página informativa si preferís
