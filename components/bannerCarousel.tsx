@@ -48,7 +48,7 @@ const slides = [
     subtitle: 'Productos de limpieza para el hogar',
     buttonLabel: 'Ver categorías',
     buttonHref: '/search/limpieza',
-    imageDesktop: banner2Image,
+    imageDesktop: banner3Image,
 
   },
   {
@@ -59,7 +59,7 @@ const slides = [
     subtitle: 'Respondemos tus consultas con IA',
     buttonLabel: 'Consultar',
     buttonHref: '#ayuda',
-    imageDesktop: banner3Image
+    imageDesktop: banner2Image
   }
 
 
