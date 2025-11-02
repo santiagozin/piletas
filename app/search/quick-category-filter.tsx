@@ -15,7 +15,7 @@ export default function QuickCategoryFilter() {
   const pathname = usePathname();
 
   return (
-    <div className='flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4 border-b border-primary pb-4 w-full text-center uppercase'>
+    <div className='flex items-center justify-center gap-3 md:gap-4 border-b border-primary pb-4 w-full text-center uppercase'>
       {categories.map((cat) => {
         const active = pathname === cat.href || (cat.href !== '/search' && pathname?.startsWith(cat.href));
         return (
@@ -23,7 +23,7 @@ export default function QuickCategoryFilter() {
             key={cat.href}
             href={cat.href}
             className={clsx(
-              'rounded-full border px-4 py-2 text-sm md:text-xl font-medium transition-colors w-full h-16 flex items-center justify-center',
+              'rounded-full border px-4 py-1 md:py-2 text-sm md:text-xl font-medium transition-colors w-full h-12 md:h-16 flex items-center justify-center',
               active
                 ? ' text-white bg-primary'
                 : 'bg-white text-primary border-primary dark:bg-transparent dark:text-white'

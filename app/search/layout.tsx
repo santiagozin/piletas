@@ -19,7 +19,7 @@ export default function SearchLayout({ children }: { children: React.ReactNode }
           <FilterItemDropdown list={sorting} />
         </div>
         <div className='flex md:flex-row flex-col'>
-          <div className="order-first w-full flex-none rounded-lg bg-slate-100 px-4 md:max-w-[250px] mr-4 pt-10">
+          <div className="order-first w-full flex-none rounded-lg bg-slate-100 px-4  md:max-w-[250px] mr-4 pt-10 mb-4">
             <Collections />
           </div>
           <div className="order-last min-h-screen w-full md:order-none">

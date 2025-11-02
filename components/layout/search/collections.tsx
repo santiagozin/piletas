@@ -30,13 +30,13 @@ async function CollectionList() {
 
   return (
     <>
-    <div className='pb-10 border-b border-primary dark:border-primary mb-4'>
+    <div className='pb-4 md:pb-10 border-b border-primary dark:border-primary mb-4'>
       <FilterList list={collectionFilters} title="Colecciones" />
       </div>
-      <div className='pb-10 border-b border-primary dark:border-primary mb-4'>
+      <div className='pb-4 md:pb-10 border-b border-primary dark:border-primary mb-4'>
       <FilterList list={brandFilters} title="Marcas" />
       </div>
-      <div className='pb-10 border-b border-primary dark:border-primary mb-4'>
+      <div className='pb-4 md:pb-10 border-b border-primary dark:border-primary mb-4'>
       <FilterList list={priceFilters} title="Rangos de Precios" />
       </div>
     </>
