@@ -80,42 +80,42 @@ const ContentAbout = () => {
                 </div>
               </div>
             </div>
-            <p className="mt-3 text-center text-gray-600">
+            <p className="mt-3 text-center text-white">
               📍 Granadero Juan Mateo Gelves 1126, Pilar, Buenos Aires
             </p>
           </div>
-          <div className="mx-auto flex w-full flex-col justify-center gap-8 md:px-24 md:pl-[15%]">
+          <div className="mx-auto flex w-full flex-col justify-center gap-8 md:px-24 md:pl-[10%]">
             <div className="flex flex-col items-center gap-2 text-lg sm:flex-row">
-              <Link href="https://wa.me/1170645115" className="flex items-center gap-3">
+              <Link href="https://wa.me/1170645115" className="group flex items-center gap-3">
                 <FaWhatsapp
-                  size={40}
-                  className="cursor-pointer text-white transition-all duration-300"
+                  size={35}
+                  className="cursor-pointer text-white transition-colors duration-300 group-hover:text-green-600"
                 />
-                <span className="text-2xl hover:text-green-600 font-normal"><span className="font-medium">Chatea</span> con nosotros</span>
+                <span className="text-white text-2xl font-normal transition-colors duration-300 group-hover:text-green-600"><span className="font-medium">Chatea</span> con nosotros</span>
               </Link>
             </div>
 
-            <div className="flex flex-col items-center gap-3 sm:flex-row">
-              <FaInstagram className="h-8 w-8 text-2xl text-white hover:text-rose-600" />
+            <div className="group flex flex-col items-center gap-3 sm:flex-row cursor-pointer">
+              <FaInstagram className="h-8 w-8 text-2xl text-white transition-colors duration-200 group-hover:text-[#E1306C]" />
               <a
                 href="https://www.instagram.com/pensok.piletas"
-                className="text-2xl text-white hover:text-rose-600 font-medium"
+                className="text-2xl text-white font-normal transition-colors duration-200 group-hover:text-[#E1306C]"
               >
                 @pensok.piletas
               </a>
             </div>
 
             <div className="flex flex-col items-center gap-3 sm:flex-row">
-              <RiPhoneFill className="h-8 w-8 text-2xl text-pensok" />
-              <p className="text-2xl text-white font-medium">+54 11 7064-5115</p>
+              <RiPhoneFill className="h-8 w-8 text-2xl text-white" />
+              <p className="text-2xl text-white font-normal">+54 11 7064-5115</p>
             </div>
 
-            <div className="flex flex-col items-center gap-3 sm:flex-row">
+            <div className="flex flex-col items-center  sm:flex-row gap-3">
               <MailIcon
-                size={28}
+                size={30}
                 className="cursor-pointer text-white transition-all duration-300 hover:text-primary/80"
               />
-              <p className="text-2xl text-white font-medium">pensokpilar@gmail.com</p>
+              <p className="text-2xl text-white font-normal">pensokpilar@gmail.com</p>
             </div>
           </div>
           <div className="flex w-full flex-col items-center justify-center gap-8 px-24 pt-24">
