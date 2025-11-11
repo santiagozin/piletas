@@ -42,7 +42,7 @@ const ContentAbout = () => {
       <PreguntasFrecuentes />
 
       <div className="relative mt-8 flex h-full flex-col items-center justify-center gap-4 overflow-hidden bg-pensok px-10 py-4 pb-8">
-        <span className="text-title-section mx-auto w-full border-b-2 border-black pb-2 md:pl-10 text-center !text-3xl !font-medium text-white">
+        <span className="text-title-section mx-auto w-full border-b-2 border-white pb-2 md:pl-10 text-center !text-3xl !font-medium text-white">
           CONTACTO
         </span>
         {/* <Image className="opacity-30" src={contacto} alt="Tienda" /> */}
