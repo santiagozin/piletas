@@ -12,7 +12,6 @@ import { SwiperSlide } from 'swiper/react';
 import banner1Image from '../app/assets/banners/banner1.png';
 import banner2Image from '../app/assets/banners/banner2.jpg';
 import banner3Image from '../app/assets/banners/banner3.jpg';
-import banner4Image from '../app/assets/promo2.png';
 import { Badge } from './ui/badge';
 
 const Swiper = dynamic(() => import('swiper/react').then((mod) => mod.Swiper), {
@@ -20,16 +19,16 @@ const Swiper = dynamic(() => import('swiper/react').then((mod) => mod.Swiper), {
 });
 
 const slides = [
-  {
+ /* {
     id: 'slide-1',
     color: 'blue' as const,
     badge: 'CyberMonday ✨',
-    title: 'Super ofertas',
-    subtitle: 'Aprovecha la semana de descuentos',
+    title: '10% OFF en todos los productos',
+    subtitle: '10% OFF en todos los productos',
     buttonLabel: 'Ver productos',
     buttonHref: '/search/mantenimiento-del-agua',
     imageDesktop: banner4Image
-  },
+  }, */
   {
     id: 'slide-2',
     color: 'blue' as const,

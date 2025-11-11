@@ -41,15 +41,15 @@ const ContentAbout = () => {
     <div className="relative" id="contacto">
       <PreguntasFrecuentes />
 
-      <div className="relative mt-8 flex h-full flex-col items-center justify-center gap-4 overflow-hidden bg-gradient-to-b from-[#a1c4fd] to-[#c2e9fb] px-10 py-4 pb-8">
-        <span className="text-title-section mx-auto w-full border-b-2 border-black pb-2 md:pl-10 text-center !text-3xl !font-medium text-black">
+      <div className="relative mt-8 flex h-full flex-col items-center justify-center gap-4 overflow-hidden bg-pensok px-10 py-4 pb-8">
+        <span className="text-title-section mx-auto w-full border-b-2 border-black pb-2 md:pl-10 text-center !text-3xl !font-medium text-white">
           CONTACTO
         </span>
         {/* <Image className="opacity-30" src={contacto} alt="Tienda" /> */}
         {/* Mapa de Google Maps */}
         <div className="mt-6 flex w-full gap-8 flex-col md:flex-row">
           <div className="w-full max-w-4xl px-0 md:px-10">
-            <h3 className="mb-4 text-left text-xl text-black">
+            <h3 className="mb-4 text-left text-2xl text-white">
               Podés retirar tu pedido en nuestro local a la calle:
             </h3>
             <div
@@ -89,17 +89,17 @@ const ContentAbout = () => {
               <Link href="https://wa.me/1170645115" className="flex items-center gap-3">
                 <FaWhatsapp
                   size={40}
-                  className="cursor-pointer text-green-600 transition-all duration-300"
+                  className="cursor-pointer text-white transition-all duration-300"
                 />
-                <span className="text-xl hover:text-green-600 font-normal"><span className="font-medium">Chatea</span> con nosotros</span>
+                <span className="text-2xl hover:text-green-600 font-normal"><span className="font-medium">Chatea</span> con nosotros</span>
               </Link>
             </div>
 
             <div className="flex flex-col items-center gap-3 sm:flex-row">
-              <FaInstagram className="h-8 w-8 text-2xl text-rose-600" />
+              <FaInstagram className="h-8 w-8 text-2xl text-white hover:text-rose-600" />
               <a
                 href="https://www.instagram.com/pensok.piletas"
-                className="text-xl hover:text-rose-600 font-medium"
+                className="text-2xl text-white hover:text-rose-600 font-medium"
               >
                 @pensok.piletas
               </a>
@@ -107,15 +107,15 @@ const ContentAbout = () => {
 
             <div className="flex flex-col items-center gap-3 sm:flex-row">
               <RiPhoneFill className="h-8 w-8 text-2xl text-pensok" />
-              <p className="text-xl font-medium">+54 11 7064-5115</p>
+              <p className="text-2xl text-white font-medium">+54 11 7064-5115</p>
             </div>
 
             <div className="flex flex-col items-center gap-3 sm:flex-row">
               <MailIcon
                 size={28}
-                className="cursor-pointer text-pensok transition-all duration-300 hover:text-primary/80"
+                className="cursor-pointer text-white transition-all duration-300 hover:text-primary/80"
               />
-              <p className="text-xl font-medium">pensokpilar@gmail.com</p>
+              <p className="text-2xl text-white font-medium">pensokpilar@gmail.com</p>
             </div>
           </div>
           <div className="flex w-full flex-col items-center justify-center gap-8 px-24 pt-24">
