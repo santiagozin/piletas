@@ -9,7 +9,7 @@ import QuickCategoryFilter from './quick-category-filter';
 export default function SearchLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <div className="mx-auto flex gap-8 px-4 pb-4 pt-10 text-black flex-col dark:text-white relative w-full max-w-full overflow-hidden">
+      <div className="mx-auto flex gap-8 px-4 pb-4 pt-10 text-black flex-col dark:text-white  w-full max-w-full overflow-hidden relative">
         <DynamicHero />
         <div className='flex w-full justify-center items-center'>
           <QuickCategoryFilter />

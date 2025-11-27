@@ -5,9 +5,10 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const categories = [
-  { title: 'Piletas', href: '/search/piletas' },
-  { title: 'Bombas', href: '/search/bombas' },
-  { title: 'Limpieza', href: '/search/limpieza' },
+  { title: 'Piletas', href: '/search/quimicos' },
+  { title: 'Accesorios', href: '/search/accesorios' },
+  { title: 'Cloro', href: '/search/cloro' },
+  { title: 'Filtros', href: '/search/filtros' },
   { title: 'Todas', href: '/search' }
 ];
 
@@ -23,7 +24,7 @@ export default function QuickCategoryFilter() {
             key={cat.href}
             href={cat.href}
             className={clsx(
-              'rounded-full border px-4 py-1 md:py-2 text-sm md:text-xl font-medium transition-colors w-full h-12 md:h-16 flex items-center justify-center',
+              'rounded-full border px-4 py-1 md:py-2 text-sm md:text-lg font-medium transition-colors w-full h-12 flex items-center justify-center',
               active
                 ? ' text-white bg-primary'
                 : 'bg-white text-primary border-primary dark:bg-transparent dark:text-white'

@@ -42,14 +42,14 @@ const ContentAbout = () => {
       <PreguntasFrecuentes />
 
       <div className="relative mt-8 flex h-full flex-col items-center justify-center gap-4 overflow-hidden bg-pensok px-10 py-4 pb-8">
-        <span className="text-title-section mx-auto w-full border-b-2 border-white pb-2 md:pl-10 text-center !text-3xl !font-medium text-white">
+        <span className="text-title-section mx-auto w-full border-b-2 border-white pb-2 md:pl-10 text-center !text-2xl !font-medium text-white">
           CONTACTO
         </span>
         {/* <Image className="opacity-30" src={contacto} alt="Tienda" /> */}
         {/* Mapa de Google Maps */}
         <div className="mt-6 flex w-full gap-8 flex-col md:flex-row">
           <div className="w-full max-w-4xl px-0 md:px-10">
-            <h3 className="mb-4 text-left text-2xl text-white">
+            <h3 className="mb-4 text-left text-xl text-white">
               Podés retirar tu pedido en nuestro local a la calle:
             </h3>
             <div
@@ -85,29 +85,29 @@ const ContentAbout = () => {
             </p>
           </div>
           <div className="mx-auto flex w-full flex-col justify-center gap-8 md:px-24 md:pl-[10%]">
-            <div className="flex flex-col items-center gap-2 text-lg sm:flex-row">
+            <div className="flex flex-col items-center gap-2 text-md sm:flex-row">
               <Link href="https://wa.me/1170645115" className="group flex items-center gap-3">
                 <FaWhatsapp
                   size={35}
                   className="cursor-pointer text-white transition-colors duration-300 group-hover:text-green-600"
                 />
-                <span className="text-white text-2xl font-normal transition-colors duration-300 group-hover:text-green-600"><span className="font-medium">Chatea</span> con nosotros</span>
+                <span className="text-white text-xl font-normal transition-colors duration-300 group-hover:text-green-600"><span className="font-medium">Chatea</span> con nosotros</span>
               </Link>
             </div>
 
             <div className="group flex flex-col items-center gap-3 sm:flex-row cursor-pointer">
-              <FaInstagram className="h-8 w-8 text-2xl text-white transition-colors duration-200 group-hover:text-[#E1306C]" />
+              <FaInstagram className="h-8 w-8 text-xl text-white transition-colors duration-200 group-hover:text-[#E1306C]" />
               <a
                 href="https://www.instagram.com/pensok.piletas"
-                className="text-2xl text-white font-normal transition-colors duration-200 group-hover:text-[#E1306C]"
+                className="text-xl text-white font-normal transition-colors duration-200 group-hover:text-[#E1306C]"
               >
                 @pensok.piletas
               </a>
             </div>
 
             <div className="flex flex-col items-center gap-3 sm:flex-row">
-              <RiPhoneFill className="h-8 w-8 text-2xl text-white" />
-              <p className="text-2xl text-white font-normal">+54 11 7064-5115</p>
+              <RiPhoneFill className="h-8 w-8 text-xl text-white" />
+              <p className="text-xl text-white font-normal">+54 11 7064-5115</p>
             </div>
 
             <div className="flex flex-col items-center  sm:flex-row gap-3">
@@ -115,7 +115,7 @@ const ContentAbout = () => {
                 size={30}
                 className="cursor-pointer text-white transition-all duration-300 hover:text-primary/80"
               />
-              <p className="text-2xl text-white font-normal">pensokpilar@gmail.com</p>
+              <p className="text-xl text-white font-normal">pensokpilar@gmail.com</p>
             </div>
           </div>
           <div className="flex w-full flex-col items-center justify-center gap-8 px-24 pt-24">

@@ -2,10 +2,7 @@
 
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import bannerDefault from '../assets/banner-tienda.jpg';
-import bannerBombas from '../assets/productos/bombas.png';
-import bannerLimpieza from '../assets/tienda/limpieza-banner.png';
-import bannerPiletas from '../assets/tienda/productos-pileta.png';
+import bannerHero from '../assets/banner-pileta.jpg';
 
 export default function DynamicHero() {
   const pathname = usePathname();
@@ -14,26 +11,16 @@ export default function DynamicHero() {
   const isLimpieza = pathname?.startsWith('/search/limpieza');
   const isPiletas = pathname === '/search' || pathname?.startsWith('/search/piletas');
 
-  const currentBanner = isBombas
-    ? bannerBombas
-    : isLimpieza
-      ? bannerLimpieza
-      : isPiletas
-        ? bannerPiletas
-        : bannerDefault;
+  const banner = bannerHero;
 
   return (
-    <div className="relative flex h-[150px] w-full items-center justify-center overflow-hidden rounded-lg bg-gradient-to-b from-[#a1c4fd] to-[#c2e9fb] md:h-[250px]">
-      <h2 className="z-10 text-2xl font-bold text-pensok md:text-5xl">
-        {isLimpieza
-          ? 'Productos de limpieza y hogar'
-          : isPiletas
-            ? 'Productos para Piletas'
-            : 'Bombas y repuestos'}
+    <div className="relative flex h-[150px] w-full items-center justify-center overflow-hidden  bg-gradient-to-b from-[#a1c4fd] to-[#c2e9fb] md:h-[150px]">
+      <h2 className="z-10 text-4xl font-bold text-pensok absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+      {isLimpieza ? 'Productos de limpieza y hogar' : isPiletas ? 'Mantenimiento del agua' : 'Bombas y repuestos'}
       </h2>
       <Image
-        src={currentBanner}
-        className={`absolute bottom-0 ${isPiletas ? 'left-[-10%] bottom-[-30px]' : !isLimpieza ? 'md:bottom-[-20%] left-0' : 'md:bottom-0 left-0'} right-0 opacity-60 ${isLimpieza ? 'max-w-[600px]' : isPiletas ? 'w-[900px]' : 'max-w-[350px]'}`}
+        src={banner}
+        className='w-full h-full object-cover object-center'
         alt="Banner"
       />
     </div>
