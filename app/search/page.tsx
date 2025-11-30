@@ -52,7 +52,7 @@ export default async function SearchPage({ params, searchParams }: SearchPagePro
           </p>
         ) : null}
         {products.length > 0 ? (
-          <Grid className="grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          <Grid className="grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pb-20">
             <ProductGridItems products={products} />
           </Grid>
         ) : null}

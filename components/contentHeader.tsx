@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import banner5 from '../app/assets/limpieza.png';
 import banner3 from '../app/assets/productos/bombas.png';
 import banner2 from "../app/assets/productos/dolphins.png";
-import banner5 from '../app/assets/productos/limpieza.png';
-import banner1 from '../app/assets/productos/productosQuimicos.png';
+import banner1 from '../app/assets/productosQuimicos.png';
 
 
 const ContentHeader = () => {
@@ -17,9 +17,9 @@ const ContentHeader = () => {
           <Image
             src={banner1}
             alt="categorias quimicos"
-            width={500}
-            height={500}
-            className="absolute bottom-[-20px] right-[0px] transition-all duration-300 group-hover:scale-110"
+            width={750}
+            height={750}
+            className="absolute bottom-[-50px] right-[-50px] transition-all duration-300 group-hover:scale-110"
           />
         </div>
       </Link>
@@ -42,7 +42,7 @@ const ContentHeader = () => {
       <Link href="/search/bombas">
         <div className="group relative h-52 md:h-[350px] w-full overflow-hidden bg-gradient-to-t from-primary to-secondary rounded-lg hover:brightness-90 hover:cursor-pointer shadow-lg ">
           <p className="text-title-banner absolute left-10 top-10 text-pensok">
-            Bombas <span className="block">de Agua</span>
+            Bombas <span className="block">y Filtros</span>
           </p>
           <Image
             src={banner3}
@@ -62,9 +62,9 @@ const ContentHeader = () => {
           <Image
             src={banner5}
             alt="categorias riegos"
-            width={350}
-            height={350}
-            className="absolute bottom-[-20px] right-[0px] transition-all duration-300 group-hover:scale-110"
+            width={450}
+            height={450}
+            className="absolute bottom-[-45px] right-[-70px] transition-all duration-300 group-hover:scale-110"
           />
         </div>
       </Link>

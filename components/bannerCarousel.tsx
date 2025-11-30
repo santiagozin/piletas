@@ -11,7 +11,7 @@ import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { SwiperSlide } from 'swiper/react';
 import banner1Image from '../app/assets/banners/banner1.png';
 import banner2Image from '../app/assets/banners/banner2.jpg';
-import banner3Image from '../app/assets/banners/banner3.jpg';
+import banner3Image from '../app/assets/banners/banner4.jpg';
 import { Badge } from './ui/badge';
 
 const Swiper = dynamic(() => import('swiper/react').then((mod) => mod.Swiper), {
@@ -32,7 +32,7 @@ const slides = [
   {
     id: 'slide-2',
     color: 'blue' as const,
-    badge: 'Hasta 40% OFF ✨',
+    badge: 'Hasta 20% OFF ✨',
     title: 'DESCUENTAZOS',
     subtitle: 'En productos para piletas',
     buttonLabel: 'Ver productos',
@@ -54,7 +54,7 @@ const slides = [
     color: 'green' as const,
     badge: '¿Cuál usar?',
     title: 'CUIDADO DEL AGUA',
-    subtitle: 'Respondemos tus consultas con IA',
+    subtitle: 'Te ayudamos a elegir el mejor producto',
     buttonLabel: 'Consultar',
     buttonHref: '#ayuda',
     imageDesktop: banner2Image
@@ -96,13 +96,13 @@ const BannerCarousel = () => {
                 <div className="mx-auto flex h-full flex-col items-center justify-center gap-4 text-left md:items-start">
                   <Badge
                     variant="outline"
-                    className="bg-white text-xs font-bold text-primary md:text-2xl md:text-pensok"
+                    className="bg-white text-xs font-bold text-primary md:text-xl md:text-pensok"
                   >
                     {slide.badge}
                   </Badge>
 
                   <p
-                    className={`max-w-[300px] text-center text-2xl font-bold !capitalize leading-[1.1] text-white sm:text-3xl md:max-w-[600px] md:text-left md:text-5xl md:text-pensok`}
+                    className={`max-w-[300px] text-center text-xl font-bold !capitalize leading-[1.1] text-white sm:text-3xl md:max-w-[600px] md:text-left md:text-5xl md:text-pensok`}
                   >
                     {slide.subtitle}
                   </p>

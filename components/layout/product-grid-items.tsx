@@ -36,10 +36,7 @@ function AddToCartButton({ product }: { product: Product }) {
         addCartItem(defaultVariant, product);
         formAction(defaultVariant.id);
       });
-
-    } catch (error) {
-      
-    }
+    } catch (error) {}
   };
 
   return (
@@ -59,10 +56,7 @@ function AddToCartButton({ product }: { product: Product }) {
 }
 
 export function ProductGridItems({ products }: { products: Product[] }) {
-  // console.log('ProductGridItems rendering with products:', products.length);
-
   if (!products || products.length === 0) {
-    // console.log('No products to render');
     return null;
   }
 
@@ -71,7 +65,7 @@ export function ProductGridItems({ products }: { products: Product[] }) {
       {products.map((product) => {
         const isRobot = product.title?.toLowerCase().startsWith('robot');
         return (
-          <li key={product.handle} className="flex flex-col relative">
+          <li key={product.handle} className="relative flex flex-col">
             <Link href={`/product/${product.handle}`} className="block">
               <GridTileImage
                 src={product.featuredImage?.url}

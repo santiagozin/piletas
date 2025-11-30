@@ -47,8 +47,9 @@ const ContentAbout = () => {
         </span>
         {/* <Image className="opacity-30" src={contacto} alt="Tienda" /> */}
         {/* Mapa de Google Maps */}
-        <div className="mt-6 flex w-full gap-8 flex-col md:flex-row">
-          <div className="w-full max-w-4xl px-0 md:px-10">
+        <div className="mt-6 grid w-full grid-cols-1 gap-8 xl:grid-cols-12">
+          {/* Columna del Mapa - Ocupa más espacio en desktop */}
+          <div className="xl:col-span-6 2xl:col-span-5 px-0 xl:px-4">
             <h3 className="mb-4 text-left text-xl text-white">
               Podés retirar tu pedido en nuestro local a la calle:
             </h3>
@@ -84,7 +85,9 @@ const ContentAbout = () => {
               📍 Granadero Juan Mateo Gelves 1126, Pilar, Buenos Aires
             </p>
           </div>
-          <div className="mx-auto flex w-full flex-col justify-center gap-8 md:px-24 md:pl-[10%]">
+          
+          {/* Columna de Contacto - Ocupa espacio medio en desktop */}
+          <div className="flex flex-col justify-center gap-6 xl:col-span-4 2xl:col-span-3 xl:px-4">
             <div className="flex flex-col items-center gap-2 text-md sm:flex-row">
               <Link href="https://wa.me/1170645115" className="group flex items-center gap-3">
                 <FaWhatsapp
@@ -110,7 +113,7 @@ const ContentAbout = () => {
               <p className="text-xl text-white font-normal">+54 11 7064-5115</p>
             </div>
 
-            <div className="flex flex-col items-center  sm:flex-row gap-3">
+            <div className="flex flex-col items-center sm:flex-row gap-3">
               <MailIcon
                 size={30}
                 className="cursor-pointer text-white transition-all duration-300 hover:text-primary/80"
@@ -118,7 +121,9 @@ const ContentAbout = () => {
               <p className="text-xl text-white font-normal">pensokpilar@gmail.com</p>
             </div>
           </div>
-          <div className="flex w-full flex-col items-center justify-center gap-8 px-24 pt-24">
+          
+          {/* Columna del Logo - Ocupa espacio menor en desktop */}
+          <div className="flex flex-col items-center justify-center gap-8 xl:col-span-2 2xl:col-span-4 xl:px-4">
             <Image src={logo} alt="Contacto" width={180} height={180} />
           </div>
         </div>
