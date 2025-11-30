@@ -4,7 +4,7 @@ function Grid(props: React.ComponentProps<'ul'>) {
   // console.log('Grid rendering with children:', props.children);
   
   return (
-    <ul {...props} className={clsx('grid grid-flow-row gap-x-4 gap-y-8', props.className)}>
+    <ul {...props} className={clsx('grid grid-flow-row gap-x-8 gap-y-8', props.className)}>
       {props.children}
     </ul>
   );

@@ -8,7 +8,7 @@ import banner1 from '../app/assets/productosQuimicos.png';
 
 const ContentHeader = () => {
   return (
-    <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-2 px-4">
+    <div className="mt-10 grid grid-cols-1  md:grid-cols-2 lg:grid-cols-4 gap-2 px-4">
       <Link href="/search/mantenimiento-del-agua">
         <div className="group relative h-52 md:h-[350px] w-full overflow-hidden bg-gradient-to-t from-primary to-secondary rounded-lg hover:brightness-90 hover:cursor-pointer shadow-lg">
           <p className="text-title-banner absolute left-10 top-10 text-pensok">
@@ -17,8 +17,8 @@ const ContentHeader = () => {
           <Image
             src={banner1}
             alt="categorias quimicos"
-            width={750}
-            height={750}
+            width={450}
+            height={450}
             className="absolute bottom-[-50px] right-[-50px] transition-all duration-300 group-hover:scale-110"
           />
         </div>
